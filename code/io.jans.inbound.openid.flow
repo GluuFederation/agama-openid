@@ -1,0 +1,10 @@
+// OpenId-based inbound identity flow
+Flow io.jans.inbound.openid
+     Basepath ""
+     Configs conf
+obj = Trigger io.jans.inbound.oauth2.AuthzCodeWithUserInfo conf.oidc
+When obj.success is true
+     obj.data = obj.data.profile
+     uid = Call io.jans.inbound.UserOnboardHelper#exec conf.uidPrefix obj.data
+     Finish uid
+Finish obj

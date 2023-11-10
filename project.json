@@ -9,7 +9,8 @@
     "license": "apache-2.0",
     "lastUpdated": "1699278900783",
     "tags": [
-        "openid-connect"
+        "openid-connect",
+        "jans"
     ],
     "noDirectLaunch": [],
     "configs": {}
