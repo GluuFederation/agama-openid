@@ -2,7 +2,7 @@
 
 Authentication using an external OpenID Connect provider with the _code_ flow
 
-Here's an example (Google) of how the configuration properties of flow `io.jans.inbound.oidc_code` may look like for actual deployment
+Here's an example (Google) of how the configuration properties of flow `io.jans.inbound.openid` may look like for actual deployment
 
 ```
  {    
