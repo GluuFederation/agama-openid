@@ -1,56 +1,42 @@
-# Agama OpenID Connect Project
+### oidc-auth
 
-Use this project to delegate authentication to an external OpenID Connect provider (OP) using the *authorization code flow*.
+Authentication using an external OpenID Connect provider with the _code_ flow
 
-## How it works at a glance
+Here's an example (Google) of how the configuration properties of flow `io.jans.inbound.oidc_code` may look like for actual deployment
 
-When the main flow of this project is launched (namely, `io.jans.inbound.openid`) the user's browser is redirected to the authorization page of the configured OP. There authentication takes place and subsequently an access token is obtained to grab user profile data. A user entry is inserted in the local Jans database and a session is created for such "local" user in the Jans Authorization Server. Finally the user's browser is taken to the registered redirect URI.
+```
+ {    
+      "oidc": {            
+          "authzEndpoint": "https://accounts.google.com/o/oauth2/v2/auth",
+          "tokenEndpoint": "https://oauth2.googleapis.com/token",
+          "userInfoEndpoint": "https://openidconnect.googleapis.com/v1/userinfo",
+          "clientId": "--- FILL YOUR VALUE HERE ---",
+          "clientSecret": "--- FILL YOUR VALUE HERE ---",
+          "scopes": ["openid", "email", "profile"],
+          "clientCredsInRequestBody": true,
+          "custParamsAuthReq": {},
+          "custParamsTokenReq": {}
+      },            
+      "uidPrefix": "google-"    
+}
+```
 
-## Requirements
+Structure of `oidc` property is described below:
 
-### Enabled Agama
 
-Ensure Agama is [enabled](https://docs.jans.io/head/admin/developer/agama/engine-bridge-config/#availability) in your Jans Server.
+|Name|Description|
+|-|-|
+|`authzEndpoint`|The authorization endpoint as in section 3.1 of [RFC 7649](https://www.ietf.org/rfc/rfc6749)| 
+|`tokenEndpoint`|The token endpoint as in section 3.2 of [RFC 7649](https://www.ietf.org/rfc/rfc6749)|
+|`userInfoEndpoint`|The endpoint where profile data can be retrieved. This is not part of the OAuth2 specification|
+|`clientId`|The identifier of the client to use, see section 1.1 and 2.2 of [RFC 7649](https://www.ietf.org/rfc/rfc6749). This client is assumed to be *confidential* as in section 2.1|
+|`clientSecret`|Secret associated to the client|
+|`scopes`|A JSON array of strings that represent the scopes of the access tokens to retrieve|
+|`redirectUri`|Redirect URI as in section 3.1.2 of [RFC 7649](https://www.ietf.org/rfc/rfc6749)|
+|`clientCredsInRequestBody`|`true` indicates the client authenticates at the token endpoint by including the credentials in the body of the request, otherwise, HTTP Basic authentication is assumed. See section 2.3.1 of [RFC 7649](https://www.ietf.org/rfc/rfc6749)|
+|`custParamsAuthReq`|A JSON object (keys and values expected to be strings) with extra parameters to pass to the authorization endpoint if desired|
+|`custParamsTokenReq`|A JSON object (keys and values expected to be strings) with extra parameters to pass to the token endpoint if desired|
 
-### Custom jar onboarding
+Often, the first six properties are the only needed.
 
-- Download the agama inbound identity [jar](https://maven.jans.io/maven/io/jans/agama-inbound/) (suffixed `with-dependencies`) that matches your Jans Server version
-- Place the file at `/opt/jans/jetty/jans-auth/custom/libs` in your Jans Server
-- Edit the file `/opt/jans/jetty/jans-auth/webapps/jans-auth.xml` to account this file. An easy choice would look like `<Set name="extraClasspath">./custom/libs/*</Set>`
-- Restart the authentication server
-
-### External OP settings
-
-Obtain the following from the OP you want to support:
-
-- The authorization endpoint URL
-- The token endpoint URL
-- The userinfo endpoint 
-- The scopes required to obtain user data
-- Client credentials (client ID and secret)
-
-In this process, you will be required to supplied a redirect URI, use the following: `https://<jans-server-host-name>/jans-auth/fl/callback`
-
-## Project deployment
-
-- Copy (SCP/SFTP) the gama file of this project to a location in your Jans server
-- Connect (SSH) to your Jans Server and open TUI: `python3 /opt/jans/jans-cli/jans_cli_tui.py`
-- Navigate to the Agama tab and then select "Upload project". Choose the gama file
-- Wait for about one minute and then select the row in the table corresponding to this project
-- Press `d` and ensure there were not deployment errors
-- Pres ESC to close the dialog
-
-## Project configuration
-
-- Still with the row highlighted, press `c` and choose to export the sample configuration to a file
-- Edit a copy of the file according to the OP settings formerly grabbed. They should go under the `io.jans.inbound.oidc_code` section
-- Still with the row highlighted, press `c` and choose to import configuration. Supply the file just edited
-
-## Testing
-
-Configure the required in your Jans Server to be able to launch an authentication flow. Actual details may vary but you can resort to a handy browser extension called [jans-tarp](https://github.com/JanssenProject/jans/tree/main/demos/jans-tarp) that will save you a good amount of work.
-
-When testing ensure the following parameters are present in the authorization request:
-
-- `acr_values=agama`
-- `agama_flow=io.jans.inbound.openid`
+When generating client ID and secret at the external OP, provide for redirect URI the following: `https://<your-jans-host>/jans-auth/fl/callback`
