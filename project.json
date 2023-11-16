@@ -2,8 +2,8 @@
     "projectName": "agama-openid",
     "description": "Authentication using an external OpenID Connect provider with the 'code' flow",
     "type": "community",
-    "author": "jgomer2001",
-    "version": "0.0.1",
+    "author": "GluuFederation",
+    "version": "1.0.2",
     "authorWebsite": "https://github.com/GluuFederation/agama-openid",
     "githubUri": "https://github.com/GluuFederation/agama-openid",
     "license": "apache-2.0",
@@ -12,6 +12,23 @@
         "openid-connect",
         "jans"
     ],
-    "noDirectLaunch": [],
-    "configs": {}
+    "noDirectLaunch": [ "io.jans.inbound.oauth2.AuthzCode", "io.jans.inbound.oauth2.AuthzCodeWithUserInfo"],
+    "configs": {
+        "io.jans.inbound.openid": {
+          "oidc": {
+            "authzEndpoint": "https://accounts.google.com/o/oauth2/v2/auth",
+            "tokenEndpoint": "https://oauth2.googleapis.com/token",
+            "userInfoEndpoint": "https://openidconnect.googleapis.com/v1/userinfo",
+            "clientId": "CLIENT IDENTIFIER",
+            "clientSecret": "SECRET",
+            "scopes": [
+              "openid"
+            ],
+            "clientCredsInRequestBody": true,
+            "custParamsAuthReq": {},
+            "custParamsTokenReq": {}
+          },
+          "uidPrefix": "google-"
+        }
+    }
 }
