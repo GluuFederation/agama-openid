@@ -930,7 +930,7 @@
 				},
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 743,
@@ -1167,7 +1167,7 @@
 					"configParams": "{}",
 					"nodeIcon": "material-symbols:line-start-square",
 					"timeout": "",
-					"inputs": "",
+					"inputs": "oauthParams",
 					"configs": "",
 					"flowname": "org.gluu.inbound.oauth2.AuthzCode"
 				},
@@ -1177,7 +1177,7 @@
 				"x": 30,
 				"y": 30
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 30,
