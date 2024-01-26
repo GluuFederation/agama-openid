@@ -422,7 +422,7 @@
 				},
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 1343,
@@ -800,7 +800,7 @@
 					"type": "Agama-start-Flow",
 					"displayName": " ",
 					"hasComment": true,
-					"comment": "",
+					"comment": "Runs the auth code flow and retrieves user profile data",
 					"isTopLevelFlow": true,
 					"basepath": "",
 					"configParams": "{}",
@@ -816,7 +816,7 @@
 				"x": 30,
 				"y": 30
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 30,
