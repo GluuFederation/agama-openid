@@ -4,6 +4,7 @@ Flow io.jans.inbound.openid
      Configs conf
 obj = Trigger io.jans.inbound.oauth2.AuthzCodeWithUserInfo conf.oidc
 When obj.success is true
+     // Leave token stuff aside 
      obj.data = obj.data.profile
      uid = Call io.jans.inbound.UserOnboardHelper#exec conf.uidPrefix obj.data
      Finish uid
