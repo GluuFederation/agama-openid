@@ -189,7 +189,10 @@
 						}
 					],
 					"callType": "Call static method",
-					"arguments": "conf.uidPrefix obj.data",
+					"arguments": [
+						"conf.uidPrefix",
+						"obj.data"
+					],
 					"logMessage": "",
 					"templatePath": "",
 					"maxIteration": "",
@@ -198,7 +201,7 @@
 					"conditionInputField": "",
 					"valueField": "",
 					"returnVariable": "",
-					"javaClassName": "io.jans.inbound.UserOnboardHelper",
+					"javaClassName": "org.gluu.inbound.UserOnboardHelper",
 					"javaMethodName": "exec",
 					"javaVariableName": "",
 					"maxIterationVariableName": "",
@@ -208,11 +211,12 @@
 					"nodeColor": "",
 					"exceptionVariableField": "",
 					"nodeIcon": "material-symbols:code",
-					"asssignedVariableName": "uid"
+					"asssignedVariableName": "uid",
+					"hasComment": true
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 743,
@@ -286,7 +290,7 @@
 				},
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 543,
@@ -606,8 +610,8 @@
 		}
 	],
 	"viewport": {
-		"x": 133.0163957703578,
-		"y": 205.05889690250643,
-		"zoom": 0.7536674547791902
+		"x": -1.0899350794523741,
+		"y": -20.3102085079139,
+		"zoom": 0.8681402276010428
 	}
 }
