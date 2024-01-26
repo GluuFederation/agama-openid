@@ -33,7 +33,8 @@
             },
             "uidPrefix": "google-"
         },
-        "io.jans.inbound.oauth2.AuthzCode": {}
+        "io.jans.inbound.oauth2.AuthzCode": {},
+        "io.jans.inbound.oauth2.AuthzCodeWithUserInfo": {}
     },
     "name": "agama-openid"
 }
