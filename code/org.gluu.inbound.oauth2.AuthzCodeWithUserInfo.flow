@@ -1,3 +1,4 @@
+// Runs the auth code flow and retrieves user profile data
 Flow org.gluu.inbound.oauth2.AuthzCodeWithUserInfo
      Basepath ""
      Inputs oauthParams
