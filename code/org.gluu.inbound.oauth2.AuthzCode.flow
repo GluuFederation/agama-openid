@@ -1,5 +1,6 @@
 Flow org.gluu.inbound.oauth2.AuthzCode
      Basepath ""
+     Inputs oauthParams
 When oauthParams.redirectUri is null
      // Obtain hostname from HTTP url
      issuer = Call org.gluu.util.NetworkUtils#urlBeforeContextPath 
