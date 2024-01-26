@@ -4,7 +4,8 @@ Flow io.jans.inbound.oauth2.AuthzCodeWithUserInfo
      Inputs oauthParams
 obj = Trigger io.jans.inbound.oauth2.AuthzCode oauthParams
 token = obj.data.access_token
-p | E = Call io.jans.util.NetworkUtils#mapFromGetRequestWithToken oauthParams.userInfoEndpoint token
+// Calls the userinfo endpoint and parses the request as a map
+p | E = Call org.gluu.util.NetworkUtils#mapFromGetRequestWithToken oauthParams.userInfoEndpoint token
 When E is not null
      Log "@error " E
      msg = [ "Unable to retrieve user profile.", E.message ]
