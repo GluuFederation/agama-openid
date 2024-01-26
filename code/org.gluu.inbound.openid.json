@@ -398,7 +398,9 @@
 						}
 					],
 					"callType": "Call static method",
-					"arguments": "conf.oidc",
+					"arguments": [
+						"conf.oidc"
+					],
 					"logMessage": "",
 					"templatePath": "",
 					"maxIteration": "",
@@ -417,12 +419,13 @@
 					"nodeColor": "",
 					"exceptionVariableField": "",
 					"nodeIcon": "fluent-mdl2:trigger-approval",
-					"flowFileName": "io.jans.inbound.oauth2.AuthzCodeWithUserInfo",
-					"asssignedVariableName": "obj"
+					"flowFileName": "org.gluu.inbound.oauth2.AuthzCodeWithUserInfo",
+					"asssignedVariableName": "obj",
+					"hasComment": true
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 230,
@@ -464,7 +467,7 @@
 				"x": 30,
 				"y": 30
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 30,
