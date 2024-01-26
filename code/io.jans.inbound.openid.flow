@@ -6,6 +6,7 @@ obj = Trigger io.jans.inbound.oauth2.AuthzCodeWithUserInfo conf.oidc
 When obj.success is true
      // Leave token stuff aside 
      obj.data = obj.data.profile
-     uid = Call io.jans.inbound.UserOnboardHelper#exec conf.uidPrefix obj.data
+     // Do user provisioning and grab his uid
+     uid = Call org.gluu.inbound.UserOnboardHelper#exec conf.uidPrefix obj.data
      Finish uid
 Finish obj
