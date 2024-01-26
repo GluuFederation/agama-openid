@@ -2,7 +2,7 @@
 	"nodes": [
 		{
 			"width": 170,
-			"height": 122,
+			"height": 124,
 			"id": "finish-06b53209-be55-4ed6-91fd-098229606f8c",
 			"position": {
 				"x": 680,
@@ -77,7 +77,7 @@
 		},
 		{
 			"width": 170,
-			"height": 122,
+			"height": 124,
 			"id": "finish-ee6298f9-129a-4403-99ec-80e1d80c1020",
 			"position": {
 				"x": 943,
@@ -149,7 +149,7 @@
 		},
 		{
 			"width": 170,
-			"height": 122,
+			"height": 124,
 			"id": "Agama-call-Node-2be381f3-1640-4a0c-9746-9d95d31b58da",
 			"position": {
 				"x": 743,
@@ -221,7 +221,7 @@
 		},
 		{
 			"width": 170,
-			"height": 122,
+			"height": 124,
 			"id": "Agama-assignment-Node-eea337cf-2c1b-4f1a-9b87-0f524c0ccca3",
 			"position": {
 				"x": 543,
@@ -250,7 +250,7 @@
 					"parentId": "Agama-when-Node-5116b663-2b53-471f-b693-faecfd9dd2a7",
 					"name": "",
 					"basepath": "",
-					"comment": "Leave token stuff aside",
+					"comment": "Leave token stuff aside ",
 					"notes": "",
 					"flowfilename": "",
 					"assignments": [
@@ -261,7 +261,9 @@
 						}
 					],
 					"callType": "Call static method",
-					"arguments": "",
+					"arguments": [
+						""
+					],
 					"logMessage": "",
 					"templatePath": "",
 					"maxIteration": "",
@@ -279,11 +281,12 @@
 					"displayName": "",
 					"nodeColor": "",
 					"exceptionVariableField": "",
-					"nodeIcon": "material-symbols:equal"
+					"nodeIcon": "material-symbols:equal",
+					"hasComment": true
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 543,
@@ -326,7 +329,15 @@
 					"valueField": "true",
 					"comment": "subflow succeded?",
 					"hasSuccess": true,
-					"hasFailure": true
+					"hasFailure": true,
+					"conditions": [
+						{
+							"variable": "obj.success",
+							"operator": "is",
+							"dataValue": "true",
+							"combinator": "none"
+						}
+					]
 				},
 				"handles": [
 					"Agama-when-Node-5116b663-2b53-471f-b693-faecfd9dd2a7.FAILURE",
@@ -343,7 +354,7 @@
 		},
 		{
 			"width": 170,
-			"height": 122,
+			"height": 124,
 			"id": "Agama-trigger-Node-33f59113-bb1c-410e-a9e0-8de5a77beaa3",
 			"position": {
 				"x": 230,
@@ -416,7 +427,7 @@
 		},
 		{
 			"width": 170,
-			"height": 122,
+			"height": 124,
 			"id": "Agama-start-Flow-de06b59c-fb82-4c9e-a1ca-306b167d07ac",
 			"type": "start",
 			"sourcePosition": "right",
@@ -480,7 +491,7 @@
 				"x": 30,
 				"y": 30
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 30,
@@ -595,8 +606,8 @@
 		}
 	],
 	"viewport": {
-		"x": 22,
-		"y": 71,
-		"zoom": 1
+		"x": 133.0163957703578,
+		"y": 205.05889690250643,
+		"zoom": 0.7536674547791902
 	}
 }
