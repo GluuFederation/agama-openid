@@ -1,4 +1,4 @@
-package io.jans.inbound;
+package org.gluu.inbound;
 
 import java.util.function.UnaryOperator;
 import java.util.HashMap;

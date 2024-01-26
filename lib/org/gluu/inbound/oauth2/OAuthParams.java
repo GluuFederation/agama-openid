@@ -1,4 +1,4 @@
-package io.jans.inbound.oauth2;
+package org.gluu.inbound.oauth2;
 
 import java.util.List;
 import java.util.Map;

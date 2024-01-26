@@ -1,4 +1,4 @@
-package io.jans.util;
+package org.gluu.util;
 
 import com.nimbusds.oauth2.sdk.ParseException;
 import com.nimbusds.oauth2.sdk.http.HTTPRequest;

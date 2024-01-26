@@ -1,4 +1,4 @@
-package io.jans.inbound;
+package org.gluu.inbound;
 
 /**
   * This class provides constants for the most commonly used attribute names in Janssen Server database

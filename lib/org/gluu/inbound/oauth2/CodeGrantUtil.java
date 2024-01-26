@@ -1,4 +1,4 @@
-package io.jans.inbound.oauth2;
+package org.gluu.inbound.oauth2;
 
 import com.nimbusds.oauth2.sdk.*;
 import com.nimbusds.oauth2.sdk.auth.*;

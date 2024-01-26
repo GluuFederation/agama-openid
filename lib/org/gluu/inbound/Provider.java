@@ -1,4 +1,4 @@
-package io.jans.inbound;
+package org.gluu.inbound;
 
 public class Provider {
     
