@@ -2,7 +2,8 @@
 Flow org.gluu.inbound.openid
      Basepath ""
      Configs conf
-obj = Trigger io.jans.inbound.oauth2.AuthzCodeWithUserInfo conf.oidc
+// Launch utility flow
+obj = Trigger org.gluu.inbound.oauth2.AuthzCodeWithUserInfo conf.oidc
 When obj.success is true
      // Leave token stuff aside 
      obj.data = obj.data.profile
