@@ -2,7 +2,8 @@
 Flow org.gluu.inbound.oauth2.AuthzCodeWithUserInfo
      Basepath ""
      Inputs oauthParams
-obj = Trigger io.jans.inbound.oauth2.AuthzCode oauthParams
+// Launches the code flow
+obj = Trigger org.gluu.inbound.oauth2.AuthzCode oauthParams
 token = obj.data.access_token
 // Calls the userinfo endpoint and parses the request as a map
 p | E = Call org.gluu.util.NetworkUtils#mapFromGetRequestWithToken oauthParams.userInfoEndpoint token
