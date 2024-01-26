@@ -1,2 +1,21 @@
 Flow org.gluu.inbound.oauth2.AuthzCode
      Basepath ""
+When oauthParams.redirectUri is null
+     // Obtain hostname from HTTP url
+     issuer = Call org.gluu.util.NetworkUtils#urlBeforeContextPath 
+     list = [ issuer, "/jans-auth/fl/callback" ]
+     oauthParams.redirectUri = Call java.lang.String#join "" list
+// Instantiate code grant utility
+codeGrantUtil = Call org.gluu.inbound.oauth2.CodeGrantUtil#new oauthParams
+Log "@info Creating an authorization request"
+url = Call codeGrantUtil makeAuthzRequest 
+state = url.second
+url = url.first
+Log "@info Redirecting to external site"
+responseParams = RFAC url
+Log "@info Browser taken back to redirect URI"
+code = Call codeGrantUtil parseCode responseParams state
+response = Call codeGrantUtil getTokenResponse code
+Log "@info An access token has been obtained"
+obj = { success: true, data: response }
+Finish obj
