@@ -16,7 +16,8 @@
 				"position": {
 					"x": -141.17296701980393,
 					"y": -44.098337580230435
-				}
+				},
+				"skake": false
 			},
 			"selected": false,
 			"positionAbsolute": {
@@ -290,7 +291,7 @@
 					"variableField": "",
 					"conditionInputField": "",
 					"valueField": "",
-					"returnVariable": "obj",
+					"returnVariable": "outcome",
 					"javaClassName": "",
 					"javaMethodName": "",
 					"javaVariableName": "",
@@ -300,11 +301,13 @@
 					"displayName": "",
 					"nodeColor": "",
 					"exceptionVariableField": "",
-					"nodeIcon": "material-symbols:line-end-square-rounded"
+					"nodeIcon": "material-symbols:line-end-square-rounded",
+					"finishMode": "withVariable",
+					"hasComment": true
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 1743,
@@ -349,11 +352,13 @@
 						{
 							"variableTypeCheck": false,
 							"assignmentExpression": "{ success: false, error: msg }",
-							"assignedVariableName": "obj"
+							"assignedVariableName": "outcome"
 						}
 					],
 					"callType": "Call static method",
-					"arguments": "",
+					"arguments": [
+						""
+					],
 					"logMessage": "",
 					"templatePath": "",
 					"maxIteration": "",
@@ -371,7 +376,8 @@
 					"displayName": "",
 					"nodeColor": "",
 					"exceptionVariableField": "",
-					"nodeIcon": "material-symbols:equal"
+					"nodeIcon": "material-symbols:equal",
+					"hasComment": true
 				},
 				"skake": false
 			},
@@ -413,7 +419,7 @@
 					"parentId": "Agama-assignment-Node-8c1f10a5-f53f-4029-877b-868afd6db7d6",
 					"name": "",
 					"basepath": "",
-					"comment": "Generate error message",
+					"comment": "Build error message",
 					"notes": "",
 					"flowfilename": "",
 					"assignments": [
@@ -424,7 +430,11 @@
 						}
 					],
 					"callType": "Call static method",
-					"arguments": "\" \" msg",
+					"arguments": [
+						"\"",
+						"\"",
+						"msg"
+					],
 					"logMessage": "",
 					"templatePath": "",
 					"maxIteration": "",
@@ -443,7 +453,8 @@
 					"nodeColor": "",
 					"exceptionVariableField": "",
 					"nodeIcon": "material-symbols:code",
-					"asssignedVariableName": "msg"
+					"asssignedVariableName": "msg",
+					"hasComment": true
 				},
 				"skake": false
 			},
@@ -832,7 +843,7 @@
 					"displayName": " ",
 					"hasComment": false,
 					"comment": "",
-					"isTopLevelFlow": true,
+					"isTopLevelFlow": false,
 					"basepath": "",
 					"configParams": "{}",
 					"nodeIcon": "material-symbols:line-start-square",
@@ -1183,8 +1194,8 @@
 		}
 	],
 	"viewport": {
-		"x": -118.14557397033889,
-		"y": 39.10975635838332,
+		"x": -767.1455739703389,
+		"y": -20.890243641616678,
 		"zoom": 0.8681402276010428
 	}
 }
