@@ -3,9 +3,9 @@ Flow org.gluu.inbound.openid
      Basepath ""
      Inputs opSettings uidPrefix
 // Check if dynamic client registration is desired
-When opSettings.useDCR is true
+When opSettings.dcr.enabled is true
      // Perform client registration and grab config data
-     temp = Call org.gluu.inbound.oauth2.DCRUtil#registerClient opSettings.host opSettings.oauth.redirectUri opSettings.oauth.scopes
+     temp = Call org.gluu.inbound.oauth2.DCRUtil#registerClient opSettings.host opSettings.dcr.useCachedClient opSettings.oauth.redirectUri opSettings.oauth.scopes
      // Populate missing data in opSettings, eg. client creds
      opSettings.oauth = Call org.gluu.inbound.oauth2.OAuthParams#update opSettings.oauth temp
 // Launch utility flow
