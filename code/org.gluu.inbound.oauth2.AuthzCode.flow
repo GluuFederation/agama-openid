@@ -18,4 +18,4 @@ code = Call codeGrantUtil parseCode responseParams state
 response = Call codeGrantUtil getTokenResponse code
 Log "@info An access token has been obtained"
 outcome = { success: true, data: response }
-Finish outcome
+Finish response
