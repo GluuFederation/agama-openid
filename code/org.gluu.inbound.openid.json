@@ -16,7 +16,8 @@
 				"position": {
 					"x": 51.87995870833106,
 					"y": 23.025457889346796
-				}
+				},
+				"skake": false
 			},
 			"selected": false,
 			"positionAbsolute": {
@@ -41,7 +42,8 @@
 				"position": {
 					"x": 329.1905930931375,
 					"y": -63.75021430570743
-				}
+				},
+				"skake": false
 			},
 			"selected": false,
 			"positionAbsolute": {
