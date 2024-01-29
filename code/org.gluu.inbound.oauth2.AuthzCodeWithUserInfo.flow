@@ -10,9 +10,11 @@ profile | E = Call org.gluu.util.NetworkUtils#mapFromGetRequestWithToken oauthPa
 When E is not null
      Log "@error " E
      msg = [ "Unable to retrieve user profile.", E.message ]
+     // Build error message
      msg = Call java.lang.String#join " " msg
-     obj = { success: false, error: msg }
-     Finish obj
+     outcome = { success: false, error: msg }
+     // Fail
+     Finish outcome
 Log "@debug Profile data\n" p
 obj = { success: true, data: { profile: p, tokenResponse: obj.data } }
 Finish obj
