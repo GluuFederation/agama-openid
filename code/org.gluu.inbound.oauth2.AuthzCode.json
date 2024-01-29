@@ -1,6 +1,56 @@
 {
 	"nodes": [
 		{
+			"width": 270,
+			"height": 55,
+			"id": "Agama-note-ed301f67-a060-4805-8891-f450ee686e41",
+			"position": {
+				"x": 1435.7007915866993,
+				"y": -53.73525766709818
+			},
+			"type": "notes",
+			"data": {
+				"id": "Agama-note-ed301f67-a060-4805-8891-f450ee686e41",
+				"type": "Agama-note",
+				"notes": "Here, the user browser is taken to the external identity provider for authentication",
+				"position": {
+					"x": 1435.7007915866993,
+					"y": -53.73525766709818
+				}
+			},
+			"selected": false,
+			"positionAbsolute": {
+				"x": 1435.7007915866993,
+				"y": -53.73525766709818
+			},
+			"dragging": false
+		},
+		{
+			"width": 270,
+			"height": 42,
+			"id": "Agama-note-b6dca7c1-ba1c-4599-bddd-9d7663bcb6e5",
+			"position": {
+				"x": 39.6733928290451,
+				"y": 344.0877978915031
+			},
+			"type": "notes",
+			"data": {
+				"id": "Agama-note-b6dca7c1-ba1c-4599-bddd-9d7663bcb6e5",
+				"type": "Agama-note",
+				"notes": "Sets the redirect uri if missing in the configuration",
+				"position": {
+					"x": 39.6733928290451,
+					"y": 344.0877978915031
+				}
+			},
+			"selected": false,
+			"positionAbsolute": {
+				"x": 39.6733928290451,
+				"y": 344.0877978915031
+			},
+			"dragging": false
+		},
+		{
 			"width": 170,
 			"height": 124,
 			"id": "finish-0c14af69-b38f-4fd9-8674-e6ad333a09fb",
@@ -43,7 +93,9 @@
 						}
 					],
 					"callType": "Call static method",
-					"arguments": "",
+					"arguments": [
+						""
+					],
 					"logMessage": "",
 					"templatePath": "",
 					"maxIteration": "",
@@ -51,7 +103,7 @@
 					"variableField": "",
 					"conditionInputField": "",
 					"valueField": "",
-					"returnVariable": "obj",
+					"returnVariable": "outcome",
 					"javaClassName": "",
 					"javaMethodName": "",
 					"javaVariableName": "",
@@ -61,11 +113,13 @@
 					"displayName": "",
 					"nodeColor": "",
 					"exceptionVariableField": "",
-					"nodeIcon": "material-symbols:line-end-square-rounded"
+					"nodeIcon": "material-symbols:line-end-square-rounded",
+					"finishMode": "withVariable",
+					"hasComment": true
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 2677.3463097188055,
@@ -110,11 +164,13 @@
 						{
 							"variableTypeCheck": false,
 							"assignmentExpression": "{ success: true, data: response }",
-							"assignedVariableName": "obj"
+							"assignedVariableName": "outcome"
 						}
 					],
 					"callType": "Call static method",
-					"arguments": "",
+					"arguments": [
+						""
+					],
 					"logMessage": "",
 					"templatePath": "",
 					"maxIteration": "",
@@ -132,7 +188,8 @@
 					"displayName": "",
 					"nodeColor": "",
 					"exceptionVariableField": "",
-					"nodeIcon": "material-symbols:equal"
+					"nodeIcon": "material-symbols:equal",
+					"hasComment": true
 				},
 				"skake": false
 			},
@@ -328,7 +385,10 @@
 						}
 					],
 					"callType": "Call method on instance",
-					"arguments": "responseParams state",
+					"arguments": [
+						"responseParams",
+						"state"
+					],
 					"logMessage": "",
 					"templatePath": "",
 					"maxIteration": "",
@@ -347,7 +407,8 @@
 					"nodeColor": "",
 					"exceptionVariableField": "",
 					"nodeIcon": "material-symbols:code",
-					"asssignedVariableName": "code"
+					"asssignedVariableName": "code",
+					"hasComment": true
 				},
 				"skake": false
 			},
@@ -870,8 +931,8 @@
 			"height": 124,
 			"id": "Agama-call-Node-cb9d7bc4-7c56-478a-a0d8-f5ac7bcefce1",
 			"position": {
-				"x": 343,
-				"y": 314
+				"x": 326.87357300710903,
+				"y": 310.544337072952
 			},
 			"type": "call",
 			"data": {
@@ -881,8 +942,8 @@
 				"whenCondition": "WhenTrue",
 				"inRepeatBlock": false,
 				"position": {
-					"x": 343,
-					"y": 314
+					"x": 326.87357300710903,
+					"y": 310.544337072952
 				},
 				"agamaData": {
 					"id": "Agama-call-Node-cb9d7bc4-7c56-478a-a0d8-f5ac7bcefce1",
@@ -933,11 +994,11 @@
 				},
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
-				"x": 343,
-				"y": 314
+				"x": 326.87357300710903,
+				"y": 310.544337072952
 			}
 		},
 		{
@@ -945,8 +1006,8 @@
 			"height": 140,
 			"id": "Agama-when-Node-e0a3ca22-b0d1-4bf1-9111-a4114b5b0d57",
 			"position": {
-				"x": 230,
-				"y": 84
+				"x": 212.75101317223687,
+				"y": 85.32684514059719
 			},
 			"parentId": "Agama-start-Flow-0102c357-a53f-496c-ae34-bcca2c3a07b5",
 			"type": "when",
@@ -957,8 +1018,8 @@
 				"whenCondition": "",
 				"inRepeatBlock": false,
 				"position": {
-					"x": 230,
-					"y": 84
+					"x": 212.75101317223687,
+					"y": 85.32684514059719
 				},
 				"agamaData": {
 					"id": "Agama-when-Node-e0a3ca22-b0d1-4bf1-9111-a4114b5b0d57",
@@ -995,8 +1056,8 @@
 			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
-				"x": 230,
-				"y": 84
+				"x": 212.75101317223687,
+				"y": 85.32684514059719
 			}
 		},
 		{
@@ -1009,8 +1070,8 @@
 				"id": "Agama-start-Flow-0102c357-a53f-496c-ae34-bcca2c3a07b5",
 				"type": "Agama-start-Flow",
 				"position": {
-					"x": 30,
-					"y": 30
+					"x": -117.93514421475237,
+					"y": 29.650085003504444
 				},
 				"inRepeatBlock": false,
 				"agamaData": {
@@ -1019,7 +1080,7 @@
 					"displayName": "OAuth 2.0 code flow",
 					"hasComment": true,
 					"comment": "",
-					"isTopLevelFlow": true,
+					"isTopLevelFlow": false,
 					"basepath": "",
 					"configParams": "{}",
 					"nodeIcon": "material-symbols:line-start-square",
@@ -1031,14 +1092,14 @@
 				"skake": false
 			},
 			"position": {
-				"x": 30,
-				"y": 30
+				"x": -117.93514421475237,
+				"y": 29.650085003504444
 			},
 			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
-				"x": 30,
-				"y": 30
+				"x": -117.93514421475237,
+				"y": 29.650085003504444
 			}
 		}
 	],
@@ -1285,8 +1346,8 @@
 		}
 	],
 	"viewport": {
-		"x": -59,
-		"y": -55,
-		"zoom": 1
+		"x": -1601.7040046488967,
+		"y": 113.03879923751262,
+		"zoom": 0.8802590135631507
 	}
 }
