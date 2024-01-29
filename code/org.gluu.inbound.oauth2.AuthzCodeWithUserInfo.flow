@@ -14,7 +14,8 @@ When E is not null
      msg = Call java.lang.String#join " " msg
      outcome = { success: false, error: msg }
      // Fail
-     Finish outcome
+     it_zeioh = {success:false, error: "msg"}
+     Finish it_zeioh
 Log "@debug Profile data\n" p
 obj = { success: true, data: { profile: p, tokenResponse: obj.data } }
 Finish obj
