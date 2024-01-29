@@ -17,6 +17,6 @@ When E is not null
      Finish outcome
 Log "@debug Profile data\n" p
 // Set variable with profile and token data
-outcome = { success: true, data: { profile: p, tokenResponse: obj.data } }
+outcome = { success: true, data: { profile: profile, tokenResponse: outcome.data } }
 // End happily
 Finish outcome
