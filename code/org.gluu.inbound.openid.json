@@ -395,7 +395,7 @@
 					"parentId": "Agama-when-Node-5116b663-2b53-471f-b693-faecfd9dd2a7",
 					"name": "",
 					"basepath": "",
-					"comment": "Leave token stuff aside ",
+					"comment": "Extract profile data (leaves token stuff aside)",
 					"notes": "",
 					"flowfilename": "",
 					"assignments": [
@@ -431,7 +431,7 @@
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 693,
@@ -583,7 +583,7 @@
 				],
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 87.16593234867958,
@@ -831,8 +831,8 @@
 		}
 	],
 	"viewport": {
-		"x": 57.45615736761238,
-		"y": 234.91610122617314,
-		"zoom": 0.8802590135631506
+		"x": 145.92104952525642,
+		"y": 75.19117272799548,
+		"zoom": 0.7536674547791903
 	}
 }
