@@ -291,7 +291,7 @@
 					"variableField": "",
 					"conditionInputField": "",
 					"valueField": "",
-					"returnVariable": "outcome",
+					"returnVariable": "msg",
 					"javaClassName": "",
 					"javaMethodName": "",
 					"javaVariableName": "",
@@ -302,7 +302,7 @@
 					"nodeColor": "",
 					"exceptionVariableField": "",
 					"nodeIcon": "material-symbols:line-end-square-rounded",
-					"finishMode": "withVariable",
+					"finishMode": "withFailure",
 					"hasComment": true
 				},
 				"skake": false
