@@ -15,6 +15,6 @@ When outcome.success is true
      outcome.data = outcome.data.profile
      // Do user provisioning and grab his uid
      uid = Call org.gluu.inbound.UserOnboardHelper#exec uidPrefix outcome.data
+     // Finish and authenticate the given user
      Finish uid
-// Fail
 Finish outcome
