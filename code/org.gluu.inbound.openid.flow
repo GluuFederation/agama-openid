@@ -1,7 +1,7 @@
 // OpenId-based inbound identity flow
 Flow org.gluu.inbound.openid
      Basepath ""
-     Inputs opSettings
+     Inputs opSettings uidPrefix
 // Check if dynamic client registration is desired
 When opSettings.useDCR is true
      // Perform client registration and grab config data
@@ -14,6 +14,6 @@ When obj.success is true
      // Leave token stuff aside 
      obj.data = obj.data.profile
      // Do user provisioning and grab his uid
-     uid = Call org.gluu.inbound.UserOnboardHelper#exec conf.uidPrefix obj.data
+     uid = Call org.gluu.inbound.UserOnboardHelper#exec uidPrefix obj.data
      Finish uid
 Finish obj
