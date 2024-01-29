@@ -9,11 +9,12 @@ When opSettings.dcr.enabled is true
      // Populate missing data in opSettings, eg. client creds
      opSettings.oauth = Call org.gluu.inbound.oauth2.OAuthParams#update opSettings.oauth temp
 // Launch utility flow
-obj = Trigger org.gluu.inbound.oauth2.AuthzCodeWithUserInfo opSettings.oauth
-When obj.success is true
+outcome = Trigger org.gluu.inbound.oauth2.AuthzCodeWithUserInfo opSettings.oauth
+When outcome.success is true
      // Extract profile data (leaves token stuff aside)
-     obj.data = obj.data.profile
+     outcome.data = outcome.data.profile
      // Do user provisioning and grab his uid
-     uid = Call org.gluu.inbound.UserOnboardHelper#exec uidPrefix obj.data
+     uid = Call org.gluu.inbound.UserOnboardHelper#exec uidPrefix outcome.data
      Finish uid
-Finish obj
+// Fail
+Finish outcome
