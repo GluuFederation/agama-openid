@@ -5,6 +5,7 @@ import com.nimbusds.oauth2.sdk.http.HTTPRequest;
 import com.nimbusds.oauth2.sdk.http.HTTPResponse;
 
 import io.jans.service.cdi.util.CdiUtil;
+import io.jans.agama.model.Flow;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.ws.rs.core.MultivaluedMap;
@@ -25,7 +26,16 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class NetworkUtils {
     
-    private static Logger LOG = LoggerFactory.getLogger(NetworkUtils.class);
+    private static Logger LOG = LoggerFactory.getLogger(Flow.class);
+
+    private static String urlBeforeContextPath() {
+        HttpServletRequest req = CdiUtil.bean(HttpServletRequest.class);
+        return req.getScheme() + "://" + req.getServerName();
+    }
+
+    public static String makeRedirectUri() {
+        return urlBeforeContextPath() + "/jans-auth/fl/callback";
+    }
 
     public static HTTPResponse sendGet(String url, MultivaluedMap<String, String> headers,
             MultivaluedMap<String, String> parameters) throws IOException {
@@ -77,11 +87,6 @@ public class NetworkUtils {
                 Collections.singletonMap("Authorization", "Bearer " + bearerToken));
         return mapFromGetRequest(url, headers, null, true);
 
-    }
-    
-    public static String urlBeforeContextPath() {
-        HttpServletRequest req = CdiUtil.bean(HttpServletRequest.class);
-        return req.getScheme() + "://" + req.getServerName();
     }
     
     private NetworkUtils() { }

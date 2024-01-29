@@ -129,7 +129,7 @@ public class CodeGrantUtil {
 
     }
 
-    private static GeneralException exFromError(ErrorObject o) {
+    public static GeneralException exFromError(ErrorObject o) {
         
         Map<String, String> map = new HashMap<>();
 
