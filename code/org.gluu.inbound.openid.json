@@ -1,6 +1,56 @@
 {
 	"nodes": [
 		{
+			"width": 270,
+			"height": 42,
+			"id": "Agama-note-e46a607c-60be-4d67-8a96-68885129d0f4",
+			"position": {
+				"x": 51.87995870833106,
+				"y": 23.025457889346796
+			},
+			"type": "notes",
+			"data": {
+				"id": "Agama-note-e46a607c-60be-4d67-8a96-68885129d0f4",
+				"type": "Agama-note",
+				"notes": "Check if a preliminar client registration should be performed",
+				"position": {
+					"x": 51.87995870833106,
+					"y": 23.025457889346796
+				}
+			},
+			"selected": false,
+			"positionAbsolute": {
+				"x": 51.87995870833106,
+				"y": 23.025457889346796
+			},
+			"dragging": false
+		},
+		{
+			"width": 270,
+			"height": 55,
+			"id": "Agama-note-21a40970-c02e-459f-93c5-efe5b6e3e73a",
+			"position": {
+				"x": 329.1905930931375,
+				"y": -63.75021430570743
+			},
+			"type": "notes",
+			"data": {
+				"id": "Agama-note-21a40970-c02e-459f-93c5-efe5b6e3e73a",
+				"type": "Agama-note",
+				"notes": "Trigger the flow that redirects the user browser to the external site and returns profile data ",
+				"position": {
+					"x": 329.1905930931375,
+					"y": -63.75021430570743
+				}
+			},
+			"selected": false,
+			"positionAbsolute": {
+				"x": 329.1905930931375,
+				"y": -63.75021430570743
+			},
+			"dragging": false
+		},
+		{
 			"width": 170,
 			"height": 124,
 			"id": "Agama-call-Node-a1a18dd1-18f3-46ed-8f87-57a2b6535a7e",
@@ -85,7 +135,7 @@
 				},
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 199.0140447063303,
@@ -455,8 +505,8 @@
 				"id": "Agama-start-Flow-de06b59c-fb82-4c9e-a1ca-306b167d07ac",
 				"type": "Agama-start-Flow",
 				"position": {
-					"x": -139.32748342535564,
-					"y": 28.848112357650635
+					"x": -168.51807651849322,
+					"y": 28.84811235765062
 				},
 				"inRepeatBlock": false,
 				"agamaData": {
@@ -477,14 +527,14 @@
 				"skake": false
 			},
 			"position": {
-				"x": -139.32748342535564,
-				"y": 28.848112357650635
+				"x": -168.51807651849322,
+				"y": 28.84811235765062
 			},
 			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
-				"x": -139.32748342535564,
-				"y": 28.848112357650635
+				"x": -168.51807651849322,
+				"y": 28.84811235765062
 			}
 		},
 		{
@@ -531,7 +581,7 @@
 				],
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 87.16593234867958,
@@ -779,8 +829,8 @@
 		}
 	],
 	"viewport": {
-		"x": 174.77995271324858,
-		"y": 52.69744047837236,
-		"zoom": 0.7536674547791904
+		"x": 57.45615736761238,
+		"y": 234.91610122617314,
+		"zoom": 0.8802590135631506
 	}
 }
