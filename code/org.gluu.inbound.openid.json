@@ -149,8 +149,8 @@
 			"height": 124,
 			"id": "finish-06b53209-be55-4ed6-91fd-098229606f8c",
 			"position": {
-				"x": 830,
-				"y": 30
+				"x": 853.0377528469871,
+				"y": 28.848112357650677
 			},
 			"type": "finish",
 			"data": {
@@ -164,8 +164,8 @@
 					"Agama-when-Node-5116b663-2b53-471f-b693-faecfd9dd2a7.SUCCESS"
 				],
 				"position": {
-					"x": 830,
-					"y": 30
+					"x": 853.0377528469871,
+					"y": 28.848112357650677
 				},
 				"agamaData": {
 					"id": "finish-06b53209-be55-4ed6-91fd-098229606f8c",
@@ -198,7 +198,7 @@
 					"variableField": "",
 					"conditionInputField": "",
 					"valueField": "",
-					"returnVariable": "obj",
+					"returnVariable": "outcome",
 					"javaClassName": "",
 					"javaMethodName": "",
 					"javaVariableName": "",
@@ -208,15 +208,17 @@
 					"displayName": "",
 					"nodeColor": "",
 					"exceptionVariableField": "",
-					"nodeIcon": "material-symbols:line-end-square-rounded"
+					"nodeIcon": "material-symbols:line-end-square-rounded",
+					"finishMode": "withVariable",
+					"hasComment": true
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
-				"x": 830,
-				"y": 30
+				"x": 853.0377528469871,
+				"y": 28.848112357650677
 			}
 		},
 		{
@@ -333,7 +335,10 @@
 						}
 					],
 					"callType": "Call static method",
-					"arguments": "uidPrefix obj.data",
+					"arguments": [
+						"uidPrefix",
+						"outcome.data"
+					],
 					"logMessage": "",
 					"templatePath": "",
 					"maxIteration": "",
@@ -401,8 +406,8 @@
 					"assignments": [
 						{
 							"variableTypeCheck": false,
-							"assignmentExpression": "obj.data.profile",
-							"assignedVariableName": "obj.data"
+							"assignmentExpression": "outcome.data.profile",
+							"assignedVariableName": "outcome.data"
 						}
 					],
 					"callType": "Call static method",
@@ -431,7 +436,7 @@
 				},
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 693,
@@ -477,12 +482,14 @@
 					"hasFailure": true,
 					"conditions": [
 						{
-							"variable": "obj.success",
+							"variable": "outcome.success",
 							"operator": "is",
 							"dataValue": "true",
 							"combinator": "none"
 						}
-					]
+					],
+					"hasComment": false,
+					"inRepeatBlock": false
 				},
 				"handles": [
 					"Agama-when-Node-5116b663-2b53-471f-b693-faecfd9dd2a7.FAILURE",
@@ -517,7 +524,7 @@
 					"displayName": " ",
 					"hasComment": true,
 					"comment": "OpenId-based inbound identity flow",
-					"isTopLevelFlow": true,
+					"isTopLevelFlow": false,
 					"basepath": "",
 					"nodeIcon": "material-symbols:line-start-square",
 					"timeout": "",
@@ -632,7 +639,9 @@
 						}
 					],
 					"callType": "Call static method",
-					"arguments": "opSettings.oauth",
+					"arguments": [
+						"opSettings.oauth"
+					],
 					"logMessage": "",
 					"templatePath": "",
 					"maxIteration": "",
@@ -652,7 +661,7 @@
 					"exceptionVariableField": "",
 					"nodeIcon": "fluent-mdl2:trigger-approval",
 					"flowFileName": "org.gluu.inbound.oauth2.AuthzCodeWithUserInfo",
-					"asssignedVariableName": "obj",
+					"asssignedVariableName": "outcome",
 					"hasComment": true,
 					"position": {
 						"x": 380
@@ -831,8 +840,8 @@
 		}
 	],
 	"viewport": {
-		"x": 145.92104952525642,
-		"y": 75.19117272799548,
-		"zoom": 0.7536674547791903
+		"x": -167.6089849529725,
+		"y": 85.59146719655806,
+		"zoom": 0.8681402276010428
 	}
 }
