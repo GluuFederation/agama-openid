@@ -19,6 +19,7 @@ import net.minidev.json.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import org.gluu.util.NetworkUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -72,6 +73,10 @@ public class DCRUtil {
         
         LOG.info("Sending a client registration request to {}", registrationURI);
 
+        if (redirectUri == null) {
+            redirectUri = NetworkUtils.makeRedirectUri();
+        }
+        
         OIDCClientMetadata clMetadata = makeClientMetadata(redirectUri, scopes);
         OIDCClientRegistrationRequest regRequest = new OIDCClientRegistrationRequest(
                 registrationURI, clMetadata, null);
