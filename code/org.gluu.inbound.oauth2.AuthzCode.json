@@ -16,7 +16,8 @@
 				"position": {
 					"x": 1435.7007915866993,
 					"y": -53.73525766709818
-				}
+				},
+				"skake": false
 			},
 			"selected": false,
 			"positionAbsolute": {
@@ -41,7 +42,8 @@
 				"position": {
 					"x": 39.6733928290451,
 					"y": 344.0877978915031
-				}
+				},
+				"skake": false
 			},
 			"selected": false,
 			"positionAbsolute": {
@@ -103,7 +105,7 @@
 					"variableField": "",
 					"conditionInputField": "",
 					"valueField": "",
-					"returnVariable": "outcome",
+					"returnVariable": "response",
 					"javaClassName": "",
 					"javaMethodName": "",
 					"javaVariableName": "",
@@ -114,7 +116,7 @@
 					"nodeColor": "",
 					"exceptionVariableField": "",
 					"nodeIcon": "material-symbols:line-end-square-rounded",
-					"finishMode": "withVariable",
+					"finishMode": "withSuccess",
 					"hasComment": true
 				},
 				"skake": false
