@@ -105,7 +105,7 @@
 					"variableField": "",
 					"conditionInputField": "",
 					"valueField": "",
-					"returnVariable": "response",
+					"returnVariable": "outcome",
 					"javaClassName": "",
 					"javaMethodName": "",
 					"javaVariableName": "",
@@ -116,7 +116,7 @@
 					"nodeColor": "",
 					"exceptionVariableField": "",
 					"nodeIcon": "material-symbols:line-end-square-rounded",
-					"finishMode": "withSuccess",
+					"finishMode": "withVariable",
 					"hasComment": true
 				},
 				"skake": false
