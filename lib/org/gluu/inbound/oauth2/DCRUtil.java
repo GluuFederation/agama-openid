@@ -29,28 +29,29 @@ public class DCRUtil {
     private static Logger LOG = LoggerFactory.getLogger(Flow.class);
     private static ObjectMapper mapper = new ObjectMapper();
     
-    public static SimpleOAuthParams registerClient(String opHost, String redirectUri,
-                List<String> scopes) throws Exception {
+    public static SimpleOAuthParams registerClient(String opHost, boolean useCachedClient,
+                String redirectUri, List<String> scopes) throws Exception {
         
         SimpleOAuthParams sop = null;
         String key = KEY_PREFIX + opHost;
         CacheService cache = CdiUtil.bean(CacheService.class);
         
-        //Check if key is in cache
-        String sopStr = Optional.ofNullable(cache.get(key)).map(Object::toString).orElse(null);
-        if (sopStr != null) {
-            try {
-                LOG.info("Parsing SimpleOAuthParams instance from cache...");
-                //parse json settings
-                sop = mapper.readValue(sopStr, SimpleOAuthParams.class);
-                LOG.info("Client ID is {}", sop.getClientId());
-                //LOG.info(sopStr);
-            } catch (Exception e) {
-                LOG.error(e.getMessage());
-                LOG.info("Removing entry from cache");
-                cache.remove(key);
+        if (useCachedClient) {
+            //Check if key is in cache
+            String sopStr = Optional.ofNullable(cache.get(key)).map(Object::toString).orElse(null);
+            if (sopStr != null) {
+                try {
+                    LOG.info("Parsing SimpleOAuthParams instance from cache...");
+                    sop = mapper.readValue(sopStr, SimpleOAuthParams.class);
+                    LOG.info("Client ID is {}", sop.getClientId());
+                    //LOG.info(sopStr);
+                } catch (Exception e) {
+                    LOG.error(e.getMessage());
+                    LOG.info("Removing entry from cache");
+                    cache.remove(key);
+                }
+                return sop;
             }
-            return sop;
         }
         
         LOG.info("Issuing a configuration request to OP {}", opHost);
@@ -106,7 +107,7 @@ public class DCRUtil {
         
         try {
             LOG.info("Writing SimpleOAuthParams instance to cache...");
-            cache.put(expMinutes.intValue(), key, mapper.writeValueAsString(sop));
+            cache.put(expMinutes.intValue() - 1, key, mapper.writeValueAsString(sop));
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
         }
