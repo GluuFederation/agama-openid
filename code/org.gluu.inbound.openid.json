@@ -36,9 +36,10 @@
 					"arguments": "opSettings.oauth temp",
 					"nodeIcon": "material-symbols:code",
 					"asssignedVariableName": "opSettings.oauth"
-				}
+				},
+				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"positionAbsolute": {
 				"x": 426.65934812271485,
 				"y": 317.4556629270481
@@ -280,10 +281,7 @@
 						}
 					],
 					"callType": "Call static method",
-					"arguments": [
-						"conf.uidPrefix",
-						"obj.data"
-					],
+					"arguments": "uidPrefix obj.data",
 					"logMessage": "",
 					"templatePath": "",
 					"maxIteration": "",
@@ -307,7 +305,7 @@
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 893,
@@ -471,7 +469,7 @@
 					"basepath": "",
 					"nodeIcon": "material-symbols:line-start-square",
 					"timeout": "",
-					"inputs": "opSettings",
+					"inputs": "opSettings uidPrefix",
 					"configs": "",
 					"flowname": "org.gluu.inbound.openid",
 					"configParams": "{}"
@@ -781,8 +779,8 @@
 		}
 	],
 	"viewport": {
-		"x": 135.80869777824012,
-		"y": 120.16311311418528,
+		"x": 122.80869777824023,
+		"y": 193.16311311418528,
 		"zoom": 0.8681402276010426
 	}
 }
