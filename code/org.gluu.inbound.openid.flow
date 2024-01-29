@@ -11,7 +11,7 @@ When opSettings.dcr.enabled is true
 // Launch utility flow
 obj = Trigger org.gluu.inbound.oauth2.AuthzCodeWithUserInfo opSettings.oauth
 When obj.success is true
-     // Leave token stuff aside 
+     // Extract profile data (leaves token stuff aside)
      obj.data = obj.data.profile
      // Do user provisioning and grab his uid
      uid = Call org.gluu.inbound.UserOnboardHelper#exec uidPrefix obj.data
