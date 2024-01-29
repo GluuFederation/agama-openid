@@ -1,6 +1,31 @@
 {
 	"nodes": [
 		{
+			"width": 270,
+			"height": 55,
+			"id": "Agama-note-4ffe7e3c-9300-4f28-90a7-9ffe605a0651",
+			"position": {
+				"x": -141.17296701980393,
+				"y": -44.098337580230435
+			},
+			"type": "notes",
+			"data": {
+				"id": "Agama-note-4ffe7e3c-9300-4f28-90a7-9ffe605a0651",
+				"type": "Agama-note",
+				"notes": "This flow runs the auth code flow and retrieves user profile data",
+				"position": {
+					"x": -141.17296701980393,
+					"y": -44.098337580230435
+				}
+			},
+			"selected": false,
+			"positionAbsolute": {
+				"x": -141.17296701980393,
+				"y": -44.098337580230435
+			},
+			"dragging": false
+		},
+		{
 			"width": 170,
 			"height": 124,
 			"id": "finish-81a0e39f-7257-4c3e-86b3-56495ce09e42",
@@ -505,8 +530,8 @@
 			"height": 140,
 			"id": "Agama-when-Node-c37faed6-e4ca-4a7c-bc3c-8f2fcdb34eab",
 			"position": {
-				"x": 830,
-				"y": 84
+				"x": 828.8481123576507,
+				"y": 85.15188764234938
 			},
 			"parentId": "Agama-call-Node-42ba4dbe-515f-4df8-aa6b-4c7568b8451a",
 			"type": "when",
@@ -517,8 +542,8 @@
 				"whenCondition": "",
 				"inRepeatBlock": false,
 				"position": {
-					"x": 830,
-					"y": 84
+					"x": 828.8481123576507,
+					"y": 85.15188764234938
 				},
 				"agamaData": {
 					"id": "Agama-when-Node-c37faed6-e4ca-4a7c-bc3c-8f2fcdb34eab",
@@ -557,8 +582,8 @@
 			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
-				"x": 830,
-				"y": 84
+				"x": 828.8481123576507,
+				"y": 85.15188764234938
 			}
 		},
 		{
@@ -566,8 +591,8 @@
 			"height": 124,
 			"id": "Agama-call-Node-42ba4dbe-515f-4df8-aa6b-4c7568b8451a",
 			"position": {
-				"x": 630,
-				"y": 30
+				"x": 585.0763819483751,
+				"y": 30.000000000000057
 			},
 			"type": "call",
 			"data": {
@@ -577,8 +602,8 @@
 				"whenCondition": "",
 				"inRepeatBlock": false,
 				"position": {
-					"x": 630,
-					"y": 30
+					"x": 585.0763819483751,
+					"y": 30.000000000000057
 				},
 				"agamaData": {
 					"id": "Agama-call-Node-42ba4dbe-515f-4df8-aa6b-4c7568b8451a",
@@ -625,7 +650,7 @@
 					"nodeColor": "",
 					"exceptionVariableField": "E",
 					"nodeIcon": "material-symbols:code",
-					"asssignedVariableName": "p",
+					"asssignedVariableName": "profile",
 					"hasComment": true
 				},
 				"skake": false
@@ -633,8 +658,8 @@
 			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
-				"x": 630,
-				"y": 30
+				"x": 585.0763819483751,
+				"y": 30.000000000000057
 			}
 		},
 		{
@@ -642,8 +667,8 @@
 			"height": 124,
 			"id": "Agama-assignment-Node-658c681c-5bc8-4d76-8e6e-4e1f7c25c0f2",
 			"position": {
-				"x": 430,
-				"y": 30
+				"x": 367.79806731313465,
+				"y": 31.151887642349323
 			},
 			"type": "assignment",
 			"data": {
@@ -653,8 +678,8 @@
 				"whenCondition": "",
 				"inRepeatBlock": false,
 				"position": {
-					"x": 430,
-					"y": 30
+					"x": 367.79806731313465,
+					"y": 31.151887642349323
 				},
 				"agamaData": {
 					"id": "Agama-assignment-Node-658c681c-5bc8-4d76-8e6e-4e1f7c25c0f2",
@@ -668,18 +693,20 @@
 					"parentId": "Agama-trigger-Node-149f6fac-d657-4f0f-8c29-f57a24489609",
 					"name": "",
 					"basepath": "",
-					"comment": "Extract access token",
+					"comment": "Extracts the access token required for requesting UserInfo",
 					"notes": "",
 					"flowfilename": "",
 					"assignments": [
 						{
 							"variableTypeCheck": false,
-							"assignmentExpression": "obj.data.access_token",
+							"assignmentExpression": "outcome.data.access_token",
 							"assignedVariableName": "token"
 						}
 					],
 					"callType": "Call static method",
-					"arguments": "",
+					"arguments": [
+						""
+					],
 					"logMessage": "",
 					"templatePath": "",
 					"maxIteration": "",
@@ -697,15 +724,16 @@
 					"displayName": "",
 					"nodeColor": "",
 					"exceptionVariableField": "",
-					"nodeIcon": "material-symbols:equal"
+					"nodeIcon": "material-symbols:equal",
+					"hasComment": true
 				},
 				"skake": false
 			},
 			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
-				"x": 430,
-				"y": 30
+				"x": 367.79806731313465,
+				"y": 31.151887642349323
 			}
 		},
 		{
@@ -713,8 +741,8 @@
 			"height": 124,
 			"id": "Agama-trigger-Node-149f6fac-d657-4f0f-8c29-f57a24489609",
 			"position": {
-				"x": 230,
-				"y": 30
+				"x": 148.21597739319566,
+				"y": 31.151887642349323
 			},
 			"type": "trigger",
 			"data": {
@@ -724,8 +752,8 @@
 				"whenCondition": "",
 				"inRepeatBlock": false,
 				"position": {
-					"x": 230,
-					"y": 30
+					"x": 148.21597739319566,
+					"y": 31.151887642349323
 				},
 				"agamaData": {
 					"id": "Agama-trigger-Node-149f6fac-d657-4f0f-8c29-f57a24489609",
@@ -772,16 +800,16 @@
 					"exceptionVariableField": "",
 					"nodeIcon": "fluent-mdl2:trigger-approval",
 					"flowFileName": "org.gluu.inbound.oauth2.AuthzCode",
-					"asssignedVariableName": "obj",
+					"asssignedVariableName": "outcome",
 					"hasComment": true
 				},
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
-				"x": 230,
-				"y": 30
+				"x": 148.21597739319566,
+				"y": 31.151887642349323
 			}
 		},
 		{
@@ -794,16 +822,16 @@
 				"id": "Agama-start-Flow-de06b59c-fb82-4c9e-a1ca-306b167d07ac",
 				"type": "Agama-start-Flow",
 				"position": {
-					"x": 30,
-					"y": 30
+					"x": -87.49253951963448,
+					"y": 31.151887642349323
 				},
 				"inRepeatBlock": false,
 				"agamaData": {
 					"id": "Agama-start-Flow-de06b59c-fb82-4c9e-a1ca-306b167d07ac",
 					"type": "Agama-start-Flow",
 					"displayName": " ",
-					"hasComment": true,
-					"comment": "Runs the auth code flow and retrieves user profile data",
+					"hasComment": false,
+					"comment": "",
 					"isTopLevelFlow": true,
 					"basepath": "",
 					"configParams": "{}",
@@ -816,14 +844,14 @@
 				"skake": false
 			},
 			"position": {
-				"x": 30,
-				"y": 30
+				"x": -87.49253951963448,
+				"y": 31.151887642349323
 			},
 			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
-				"x": 30,
-				"y": 30
+				"x": -87.49253951963448,
+				"y": 31.151887642349323
 			}
 		},
 		{
@@ -1155,8 +1183,8 @@
 		}
 	],
 	"viewport": {
-		"x": 10,
-		"y": 15,
-		"zoom": 1
+		"x": -118.14557397033889,
+		"y": 39.10975635838332,
+		"zoom": 0.8681402276010428
 	}
 }
