@@ -3,6 +3,51 @@
 		{
 			"width": 170,
 			"height": 124,
+			"id": "Agama-call-Node-a1a18dd1-18f3-46ed-8f87-57a2b6535a7e",
+			"position": {
+				"x": 426.65934812271485,
+				"y": 317.4556629270481
+			},
+			"type": "call",
+			"data": {
+				"id": "Agama-call-Node-a1a18dd1-18f3-46ed-8f87-57a2b6535a7e",
+				"type": "Agama-call-Node",
+				"parentId": "Agama-call-Node-bb36e857-b467-4eff-b357-fcd600f1c56c",
+				"whenCondition": "",
+				"inRepeatBlock": false,
+				"position": {
+					"x": 426.65934812271485,
+					"y": 317.4556629270481
+				},
+				"agamaData": {
+					"id": "Agama-call-Node-a1a18dd1-18f3-46ed-8f87-57a2b6535a7e",
+					"parentId": "Agama-call-Node-bb36e857-b467-4eff-b357-fcd600f1c56c",
+					"type": "Agama-call-Node",
+					"displayName": "",
+					"hasComment": true,
+					"comment": "Populate missing data in opSettings, eg. client creds",
+					"javaClassName": "org.gluu.inbound.oauth2.OAuthParams",
+					"javaMethodName": "update",
+					"javaVariableName": "",
+					"exceptionVariableField": "",
+					"callType": "Call static method",
+					"whenCondition": "",
+					"inRepeatBlock": false,
+					"arguments": "opSettings.oauth temp",
+					"nodeIcon": "material-symbols:code",
+					"asssignedVariableName": "opSettings.oauth"
+				}
+			},
+			"selected": true,
+			"positionAbsolute": {
+				"x": 426.65934812271485,
+				"y": 317.4556629270481
+			},
+			"dragging": false
+		},
+		{
+			"width": 170,
+			"height": 124,
 			"id": "Agama-call-Node-bb36e857-b467-4eff-b357-fcd600f1c56c",
 			"position": {
 				"x": 199.0140447063303,
@@ -36,9 +81,10 @@
 					"arguments": "opSettings.host opSettings.oauth.redirectUri opSettings.oauth.scopes",
 					"nodeIcon": "material-symbols:code",
 					"asssignedVariableName": "temp"
-				}
+				},
+				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 199.0140447063303,
@@ -449,7 +495,7 @@
 			"id": "Agama-when-Node-000a8576-0d80-42f8-8ec6-e06b386b9b96",
 			"position": {
 				"x": 87.16593234867958,
-				"y": 85.15188764234937
+				"y": 84.00000000000001
 			},
 			"parentId": "Agama-start-Flow-de06b59c-fb82-4c9e-a1ca-306b167d07ac",
 			"type": "when",
@@ -461,7 +507,7 @@
 				"inRepeatBlock": false,
 				"position": {
 					"x": 87.16593234867958,
-					"y": 85.15188764234937
+					"y": 84.00000000000001
 				},
 				"agamaData": {
 					"id": "Agama-when-Node-000a8576-0d80-42f8-8ec6-e06b386b9b96",
@@ -484,13 +530,14 @@
 				"handles": [
 					"Agama-when-Node-000a8576-0d80-42f8-8ec6-e06b386b9b96.FAILURE",
 					"Agama-when-Node-000a8576-0d80-42f8-8ec6-e06b386b9b96.SUCCESS"
-				]
+				],
+				"skake": false
 			},
 			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 87.16593234867958,
-				"y": 85.15188764234937
+				"y": 84.00000000000001
 			}
 		},
 		{
@@ -714,6 +761,23 @@
 				"fillOpacity": 0.7
 			},
 			"sourceHandle": "Agama-when-Node-000a8576-0d80-42f8-8ec6-e06b386b9b96.SUCCESS"
+		},
+		{
+			"id": "Agama-call-Node-bb36e857-b467-4eff-b357-fcd600f1c56c-Agama-call-Node-a1a18dd1-18f3-46ed-8f87-57a2b6535a7e-bd314eef-6303-42f6-b78b-7f9a1f865044",
+			"type": "straight",
+			"source": "Agama-call-Node-bb36e857-b467-4eff-b357-fcd600f1c56c",
+			"target": "Agama-call-Node-a1a18dd1-18f3-46ed-8f87-57a2b6535a7e",
+			"label": "",
+			"labelBgPadding": [
+				8,
+				4
+			],
+			"labelBgBorderRadius": 4,
+			"labelBgStyle": {
+				"fill": "#FFCC00",
+				"color": "#fff",
+				"fillOpacity": 0.7
+			}
 		}
 	],
 	"viewport": {
