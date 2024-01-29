@@ -79,13 +79,13 @@
 					"callType": "Call static method",
 					"whenCondition": "WhenTrue",
 					"inRepeatBlock": false,
-					"arguments": "opSettings.host opSettings.oauth.redirectUri opSettings.oauth.scopes",
+					"arguments": "opSettings.host opSettings.dcr.useCachedClient opSettings.oauth.redirectUri opSettings.oauth.scopes",
 					"nodeIcon": "material-symbols:code",
 					"asssignedVariableName": "temp"
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 199.0140447063303,
@@ -305,7 +305,7 @@
 				},
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 893,
@@ -514,7 +514,7 @@
 					"hasFailure": true,
 					"conditions": [
 						{
-							"variable": "opSettings.useDCR",
+							"variable": "opSettings.dcr.enabled",
 							"operator": "is",
 							"dataValue": "true",
 							"combinator": "none"
@@ -779,8 +779,8 @@
 		}
 	],
 	"viewport": {
-		"x": 138.80869777824023,
-		"y": 131.1631131141853,
-		"zoom": 0.8681402276010426
+		"x": 174.77995271324858,
+		"y": 52.69744047837236,
+		"zoom": 0.7536674547791904
 	}
 }
