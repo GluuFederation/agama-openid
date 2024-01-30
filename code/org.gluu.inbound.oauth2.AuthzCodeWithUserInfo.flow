@@ -15,7 +15,7 @@ When E is not null
      outcome = { success: false, error: msg }
      // Fail
      Finish outcome
-Log "@debug Profile data\n" p
+Log "@debug Profile data\n" profile
 // Set variable with profile and token data
 outcome = { success: true, data: { profile: profile, tokenResponse: outcome.data } }
 // End happily
