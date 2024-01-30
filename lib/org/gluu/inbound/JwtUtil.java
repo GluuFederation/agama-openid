@@ -1,4 +1,4 @@
-package io.jans.inbound;
+package org.gluu.inbound;
 
 import com.nimbusds.jose.*;
 import com.nimbusds.jose.crypto.*;

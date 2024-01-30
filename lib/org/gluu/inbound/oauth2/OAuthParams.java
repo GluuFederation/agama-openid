@@ -1,16 +1,12 @@
-package io.jans.inbound.oauth2;
+package org.gluu.inbound.oauth2;
+
+import org.apache.commons.beanutils.BeanUtils;
 
 import java.util.List;
 import java.util.Map;
 
-public class OAuthParams {
-    
-    private String authzEndpoint;
-    private String tokenEndpoint;
-    private String userInfoEndpoint;
+public class OAuthParams extends SimpleOAuthParams {
 
-    private String clientId;
-    private String clientSecret;
     private List<String> scopes;
 
     private String redirectUri;
@@ -18,46 +14,6 @@ public class OAuthParams {
     private boolean clientCredsInRequestBody;
     private Map<String, String> custParamsAuthReq;
     private Map<String, String> custParamsTokenReq;
-
-    public String getAuthzEndpoint() {
-        return authzEndpoint;
-    }
-
-    public void setAuthzEndpoint(String authzEndpoint) {
-        this.authzEndpoint = authzEndpoint;
-    }
-
-    public String getTokenEndpoint() {
-        return tokenEndpoint;
-    }
-
-    public void setTokenEndpoint(String tokenEndpoint) {
-        this.tokenEndpoint = tokenEndpoint;
-    }
-    
-    public String getUserInfoEndpoint() {
-        return userInfoEndpoint;
-    }
-    
-    public void setUserInfoEndpoint(String userInfoEndpoint) {
-        this.userInfoEndpoint = userInfoEndpoint;
-    }
-
-    public String getClientId() {
-        return clientId;
-    }
-
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
-    }
-
-    public String getClientSecret() {
-        return clientSecret;
-    }
-
-    public void setClientSecret(String clientSecret) {
-        this.clientSecret = clientSecret;
-    }
 
     public List<String> getScopes() {
         return scopes;
@@ -98,4 +54,13 @@ public class OAuthParams {
     public void setCustParamsTokenReq(Map<String, String> custParamsTokenReq) {
         this.custParamsTokenReq = custParamsTokenReq;
     }
+
+    public static OAuthParams update(OAuthParams oap, SimpleOAuthParams sop)
+            throws ReflectiveOperationException {
+
+        BeanUtils.copyProperties(oap, sop);
+        return oap;
+
+    }
+
 }

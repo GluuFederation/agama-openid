@@ -1,4 +1,4 @@
-package io.jans.inbound;
+package org.gluu.inbound;
 
 import io.jans.as.common.model.common.User;
 import io.jans.as.common.service.common.UserService;
@@ -15,7 +15,7 @@ public class UserOnboardHelper {
         
     public static String exec(String prefix, Map<String, Object> profile) {
         
-        String uid = prefix + profile.get("sub").toString();
+        String uid = Optional.ofNullable(prefix).orElse("") + profile.get("sub").toString();
         
         //if not existing, insert user with the uid just built
         UserService userService = CdiUtil.bean(UserService.class);

@@ -2,48 +2,80 @@
 
 Use this project to delegate authentication to an external OpenID Connect provider (OP) using the *authorization code flow*.
 
-## How it works at a glance
+## Anatomy
 
-When the main flow of this project is launched (namely, `io.jans.inbound.openid`) the user's browser is redirected to the authorization page of the configured OP. There authentication takes place and subsequently an access token is obtained to grab user profile data. A user entry is inserted in the local Jans database and a session is created for such "local" user in the Jans Authorization Server. Finally the user's browser is taken to the registered redirect URI.
+The project consists of three flows that provide incremental functionality:
 
-## Requirements
+- `org.gluu.inbound.oauth2.AuthzCode`: With this flow the user's browser is redirected to the authorization page of an external OP (the specifics are passed in the input parameters). Authentication takes place there and subsequently an access token is obtained and returned to the caller of the flow
 
-### Enabled Agama
+- `org.gluu.inbound.oauth2.AuthzCodeWithUserInfo`: This flow launches `AuthzCode` and then obtains the profile data of the authenticated user by presenting an access token. Both the token and profile data are returned to the caller
 
-Ensure Agama is [enabled](https://docs.jans.io/head/admin/developer/agama/engine-bridge-config/#availability) in your Jans Server.
+- `org.gluu.inbound.openid`: This flow launches `AuthzCodeWithUserInfo` and inserts an entry in the local Jans database for the user in question. Depending on how the flow is parameterized, this flow can perform a preliminar OpenID client registration 
 
-### External OP settings
+## `openid` flow
 
-Obtain the following from the OP you want to support:
+Most of times, this is the flow that developers will want to reuse in their projects. It receives two input parameters:
 
-- The authorization endpoint URL
-- The token endpoint URL
-- The userinfo endpoint 
-- The scopes required to obtain user data
-- Client credentials (client ID and secret)
+- `opSettings`. An Agama map that specify the settings to be able to interact with the external OP
+- `uidPrefix`. A string value used for user provisioning: the user inserted in local DB will have an `uid` equal to the concatenation of `uidPrefix` and the `sub` released by the external OP. This param can be omitted or set to `null` if no prefixing is desired 
 
-In this process, you will be required to supplied a redirect URI, use the following: `https://<jans-server-host-name>/jans-auth/fl/callback`
+### OP settings
 
-## Project deployment
+The structure of `opSettings` is as follows:
 
-- Copy (SCP/SFTP) the gama file of this project to a location in your Jans server
-- Connect (SSH) to your Jans Server and open TUI: `python3 /opt/jans/jans-cli/jans_cli_tui.py`
-- Navigate to the Agama tab and then select "Upload project". Choose the gama file
-- Wait for about one minute and then select the row in the table corresponding to this project
-- Press `d` and ensure there were not deployment errors
-- Pres ESC to close the dialog
+|Name|Description|Notes|
+|-|-|-|
+|`host`|Location of the identity provider, eg. `https://my.idp.co`|Required if DCR is enabled, see below|
+|`dcr`|The `openid` flow can make use of Dynamic Client Registration (DCR) - a feature some OPs provide|Required|
+|`oauth`|A map following the same structure of [oauthParams](#authzcodewithuserinfo-and-authzcode)||
 
-## Project configuration
+Regarding oauth map, **not all fields** marked as required are necessary when DCR is enabled. It suffices to supply `scopes`.
 
-- Still with the row highlighted, press `c` and choose to export the sample configuration to a file
-- Edit a copy of the file according to the OP settings formerly grabbed. They should go under the `io.jans.inbound.openid` section
-- Still with the row highlighted, press `c` and choose to import configuration. Supply the file just edited
+Here is a minimalistic value that can be supplied for `opSettings` when DCR is supported by the external OP:
 
-## Testing
+```
+{
+    host: "https://my.idp.co", 
+    dcr: { enabled: true, useCachedClient: true },
+    oauth: { scopes: [ "openid" ] } 
+}
+```
 
-Configure the required in your Jans Server to be able to launch an authentication flow. Actual details may vary but you can resort to a handy browser extension called [jans-tarp](https://github.com/JanssenProject/jans/tree/main/demos/jans-tarp) that will save you a good amount of work.
+### DCR settings
 
-When testing ensure the following parameters are present in the authorization request:
+The structure of `dcr` is as follows:
 
-- `acr_values=agama`
-- `agama_flow=io.jans.inbound.openid`
+|Name|Description|Notes|
+|-|-|-|
+|`enabled`|A boolean value indicating if DCR will be used for the external OP|Required<!--Optional. `false` value assumed if missing-->|
+|`useCachedClient`|Once the first client registration takes place, no more registration attempts will be made until the client is about to expire. Set this to `true` to force registration every time `openid` flow is launched|Required|
+
+
+## `AuthzCodeWithUserInfo` and `AuthzCode`
+
+Each of these flows receive an input parameter (`oauthParams`) to drive their behavior. `oauthParams` is expected to be an Agama map with the following structure:
+
+|Name|Description|Notes|
+|-|-|-|
+|`authzEndpoint`|The authorization endpoint as in section 3.1 of [RFC 7649](https://www.ietf.org/rfc/rfc6749)|Required| 
+|`tokenEndpoint`|The token endpoint as in section 3.2 of [RFC 7649](https://www.ietf.org/rfc/rfc6749)|Required|
+|`userInfoEndpoint`|The endpoint where profile data can be retrieved. This is not part of the OAuth2 specification|Optional|
+|`clientId`|The identifier of the client to use, see section 1.1 and 2.2 of [RFC7649](https://www.ietf.org/rfc/rfc6749). This client is assumed to be *confidential* as in section 2.1|Required|
+|`clientSecret`|Secret associated to the client|Required|
+|`scopes`|An array of strings that represent the scopes of the access tokens to retrieve|Required|
+|`redirectUri`|Redirect URI as in section 3.1.2 of [RFC 7649](https://www.ietf.org/rfc/rfc6749)|Optional (auto filled when missing)|
+|`clientCredsInRequestBody`|`true` indicates the client authenticates at the token endpoint by including the credentials in the body of the request, otherwise, HTTP Basic authentication is assumed. See section 2.3.1 of [RFC 7649](https://www.ietf.org/rfc/rfc6749)|Optional. `false` is assumed if not supplied|
+|`custParamsAuthReq`|An Agama map (keys and values expected to be strings) with extra parameters to pass to the authorization endpoint if desired|Optional|
+|`custParamsTokenReq`|An Agama map (keys and values expected to be strings) with extra parameters to pass to the token endpoint if desired|Optional|
+
+## FAQ
+
+
+### I don't use DCR and I am asked to provide a redirect URI in order to get a client ID/Secret
+
+Supply the following: `https://<jans-server-host-name>/jans-auth/fl/callback`
+
+### What methods for token endpoint authentication are supported?
+
+Only `client_secret_basic` and `client_secret_post` are supported
+

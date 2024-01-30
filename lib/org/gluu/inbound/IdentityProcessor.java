@@ -1,4 +1,4 @@
-package io.jans.inbound;
+package org.gluu.inbound;
 
 import io.jans.as.common.model.common.User;
 import io.jans.as.common.service.common.UserService;
