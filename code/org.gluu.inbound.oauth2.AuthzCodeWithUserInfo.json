@@ -16,9 +16,10 @@
 				"position": {
 					"x": 748.0842928739003,
 					"y": 318.7462697598172
-				}
+				},
+				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"positionAbsolute": {
 				"x": 748.0842928739003,
 				"y": 318.7462697598172
@@ -243,8 +244,10 @@
 						}
 					],
 					"callType": "Call static method",
-					"arguments": "",
-					"logMessage": "\"Profile data\\n\" p",
+					"arguments": [
+						""
+					],
+					"logMessage": "\"Profile data\\n\" profile",
 					"templatePath": "",
 					"maxIteration": "",
 					"idpAuthEndpoint": "",
@@ -270,7 +273,7 @@
 				"x": 1080,
 				"y": 30
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false
 		},
 		{
@@ -1227,8 +1230,8 @@
 		}
 	],
 	"viewport": {
-		"x": -358.14557397033917,
-		"y": 33.10975635838332,
-		"zoom": 0.8681402276010428
+		"x": -172.00120415940785,
+		"y": 25.031791938293736,
+		"zoom": 0.7536674547791904
 	}
 }
