@@ -1,5 +1,7 @@
 package org.gluu.inbound.oauth2;
 
+import org.apache.commons.beanutils.BeanUtils;
+
 import java.util.List;
 import java.util.Map;
 
@@ -53,16 +55,12 @@ public class OAuthParams extends SimpleOAuthParams {
         this.custParamsTokenReq = custParamsTokenReq;
     }
 
-    public static OAuthParams update(OAuthParams oap, SimpleOAuthParams sop) {
+    public static OAuthParams update(OAuthParams oap, SimpleOAuthParams sop)
+            throws ReflectiveOperationException {
 
-        oap.setAuthzEndpoint(sop.getAuthzEndpoint());
-        oap.setTokenEndpoint(sop.getTokenEndpoint());
-        oap.setUserInfoEndpoint(sop.getUserInfoEndpoint());
-        oap.setClientId(sop.getClientId());
-        oap.setClientSecret(sop.getClientSecret());
-        
+        BeanUtils.copyProperties(oap, sop);
         return oap;
-        
+
     }
 
 }
