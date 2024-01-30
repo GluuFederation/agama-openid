@@ -253,7 +253,7 @@
 					"parentId": "Agama-call-Node-2be381f3-1640-4a0c-9746-9d95d31b58da",
 					"name": "",
 					"basepath": "",
-					"comment": "Finish and authenticate the given user",
+					"comment": "Finish returning the uid of the given user",
 					"notes": "",
 					"flowfilename": "",
 					"assignments": [
@@ -264,7 +264,9 @@
 						}
 					],
 					"callType": "Call static method",
-					"arguments": "",
+					"arguments": [
+						""
+					],
 					"logMessage": "",
 					"templatePath": "",
 					"maxIteration": "",
@@ -842,8 +844,8 @@
 		}
 	],
 	"viewport": {
-		"x": -167.6089849529725,
-		"y": 85.59146719655806,
-		"zoom": 0.8681402276010428
+		"x": 144.6738313796775,
+		"y": 52.91939549759411,
+		"zoom": 0.654289035727505
 	}
 }
