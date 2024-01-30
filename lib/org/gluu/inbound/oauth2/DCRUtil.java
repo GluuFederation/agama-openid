@@ -70,12 +70,11 @@ public class DCRUtil {
         sop.setAuthzEndpoint(opMetadata.getAuthorizationEndpointURI().toString());
         sop.setTokenEndpoint(opMetadata.getTokenEndpointURI().toString());
         sop.setUserInfoEndpoint(opMetadata.getUserInfoEndpointURI().toString());
-        
-        LOG.info("Sending a client registration request to {}", registrationURI);
 
         if (redirectUri == null) {
             redirectUri = NetworkUtils.makeRedirectUri();
         }
+        LOG.info("Sending a client registration request to {}", registrationURI);
         
         OIDCClientMetadata clMetadata = makeClientMetadata(redirectUri, scopes);
         OIDCClientRegistrationRequest regRequest = new OIDCClientRegistrationRequest(
@@ -130,7 +129,7 @@ public class DCRUtil {
         Object blu = json.get(property);
         boolean nullify = blu != null;
         
-        if (!nullify) return response;
+        if (!nullify || String.class.isInstance(blu)) return response;
         
         if (JSONArray.class.isInstance(blu)) {
             JSONArray list = (JSONArray) blu;
