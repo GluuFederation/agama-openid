@@ -2,8 +2,7 @@ package org.gluu.inbound.oauth2;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class OAuthParams extends SimpleOAuthParams {
 
@@ -59,6 +58,21 @@ public class OAuthParams extends SimpleOAuthParams {
             throws ReflectiveOperationException {
 
         BeanUtils.copyProperties(oap, sop);
+        return oap;
+
+    }
+
+    public static OAuthParams update(OAuthParams oap, SimpleOAuthParams sop, String acrValues)
+            throws ReflectiveOperationException {
+
+        update(oap, sop);
+        if (acrValues != null) {
+            Map<String, String> custParams = Optional.ofNullable(oap.getCustParamsAuthReq())
+                    .orElse(new HashMap<>());
+            //overwrite acrs
+            custParams.put("acr_values", acrValues);
+            oap.setCustParamsAuthReq(custParams);
+        }
         return oap;
 
     }

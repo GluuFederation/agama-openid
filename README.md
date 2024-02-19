@@ -28,6 +28,7 @@ The structure of `opSettings` is as follows:
 |`host`|Location of the identity provider, eg. `https://my.idp.co`|Required if DCR is enabled, see below|
 |`dcr`|The `openid` flow can make use of Dynamic Client Registration (DCR) - a feature some OPs provide|Required|
 |`oauth`|A map following the same structure of [oauthParams](#authzcodewithuserinfo-and-authzcode)||
+|`acrValues`|A string supplying _Authentication Context Class Reference_ values|Optional|
 
 Regarding oauth map, **not all fields** marked as required are necessary when DCR is enabled. It suffices to supply `scopes`.
 
@@ -48,7 +49,7 @@ The structure of `dcr` is as follows:
 |Name|Description|Notes|
 |-|-|-|
 |`enabled`|A boolean value indicating if DCR will be used for the external OP|Required<!--Optional. `false` value assumed if missing-->|
-|`useCachedClient`|Once the first client registration takes place, no more registration attempts will be made until the client is about to expire. Set this to `true` to force registration every time `openid` flow is launched|Required|
+|`useCachedClient`|Once the first client registration takes place, no more registration attempts will be made until the client is about to expire. Set this to `false` to force registration every time `openid` flow is launched|Required|
 
 
 ## `AuthzCodeWithUserInfo` and `AuthzCode`
