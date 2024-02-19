@@ -5,7 +5,7 @@
 			"height": 124,
 			"id": "Agama-call-Node-1d5207ac-f38e-4c6f-8283-a093c4bbd449",
 			"position": {
-				"x": 292.58559493754177,
+				"x": 289.58559493754177,
 				"y": 30.00000000000003
 			},
 			"type": "call",
@@ -17,7 +17,7 @@
 				"inRepeatBlock": false,
 				"inIterateBlock": false,
 				"position": {
-					"x": 292.58559493754177,
+					"x": 289.58559493754177,
 					"y": 30.00000000000003
 				},
 				"agamaData": {
@@ -45,7 +45,7 @@
 			},
 			"selected": true,
 			"positionAbsolute": {
-				"x": 292.58559493754177,
+				"x": 289.58559493754177,
 				"y": 30.00000000000003
 			},
 			"dragging": false
