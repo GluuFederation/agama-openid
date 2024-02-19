@@ -736,7 +736,7 @@
 				"skake": false,
 				"inIterateBlock": ""
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 25.21860615639764,
@@ -925,8 +925,8 @@
 		}
 	],
 	"viewport": {
-		"x": 58.1191791591591,
-		"y": 35.7713788711207,
-		"zoom": 0.8681402276010427
+		"x": 312.1070410615867,
+		"y": 46.24781882623449,
+		"zoom": 0.7536674547791902
 	}
 }
