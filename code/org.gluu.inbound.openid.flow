@@ -8,4 +8,14 @@ When opSettings.dcr.enabled is true
      // Perform client registration and grab config data
      temp = Call org.gluu.inbound.oauth2.DCRUtil#registerClient opSettings.host opSettings.dcr.useCachedClient opSettings.oauth.redirectUri opSettings.oauth.scopes
 // Fill missing data in opSettings, if any, like client creds
-opSettings.oauth = Call org.gluu.inbound.oauth2.OAuthParams#update opSettings.oauth temp opSettings.acrValues
+opSettings.oauth = Call org.gluu.inbound.oauth2.OAuthParams#update opSettings.oauth  temp opSettings.acrValues
+// Launch utility flow
+outcome = Trigger org.gluu.inbound.oauth2.AuthzCodeWithUserInfo opSettings.oauth
+When outcome.success is true
+     // Extract profile data (leaves token stuff aside)
+     outcome.data = outcome.data.profile
+     // Do user provisioning and grab his uid
+     uid = Call org.gluu.inbound.UserOnboardHelper#exec uidPrefix outcome.data
+     // Finish returning the uid of the given user
+     Finish uid
+Finish outcome
