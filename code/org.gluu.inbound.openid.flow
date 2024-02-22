@@ -1,7 +1,12 @@
 // OpenId-based inbound identity flow
 Flow org.gluu.inbound.openid
      Basepath ""
-     Inputs opSettings uidPrefix
+     Configs conf
+obj = { providers: conf }
+// Show form for provider selection
+data = RRF "list.ftlh" obj
+providerId = data.selection
+opSettings = conf.$providerId
 temp = {}
 // Check if dynamic client registration is desired
 When opSettings.dcr.enabled is true
