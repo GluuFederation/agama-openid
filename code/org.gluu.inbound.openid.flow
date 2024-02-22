@@ -20,7 +20,7 @@ When outcome.success is true
      // Extract profile data (leaves token stuff aside)
      outcome.data = outcome.data.profile
      // Do user provisioning and grab his uid
-     uid = Call org.gluu.inbound.UserOnboardHelper#exec uidPrefix outcome.data
+     uid = Call org.gluu.inbound.UserOnboardHelper#exec opSettings.uidPrefix outcome.data
      // Finish returning the uid of the given user
      Finish uid
 Finish outcome
