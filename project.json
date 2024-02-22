@@ -19,7 +19,42 @@
     "configs": {
         "org.gluu.inbound.oauth2.AuthzCode": {},
         "org.gluu.inbound.oauth2.AuthzCodeWithUserInfo": {},
-        "org.gluu.inbound.openid": {}
+        "org.gluu.inbound.openid": {
+            "org.gluu.inbound.openid": {
+                "Gluu": {
+                    "host": "https://my.gluu.co",
+                    "dcr": {
+                        "enabled": true,
+                        "useCachedClient": true
+                    },
+                    "oauth": {
+                        "scopes": [
+                            "openid"
+                        ]
+                    },
+                    "provision": {
+                        "uidPrefix": "gluu-",
+                        "attribute": "sub"
+                    }
+                },
+                "Github": {
+                    "oauth": {
+                        "authzEndpoint": "https://github.com/login/oauth/authorize",
+                        "tokenEndpoint": "https://github.com/login/oauth/access_token",
+                        "userInfoEndpoint": "https://api.github.com/user",
+                        "clientId": "mangled",
+                        "clientSecret": "twisted",
+                        "scopes": [
+                            "user"
+                        ]
+                    },
+                    "provision": {
+                        "uidPrefix": "github-",
+                        "attribute": "login"
+                    }
+                }
+            }
+        }
     },
     "name": "agama-openid"
 }
