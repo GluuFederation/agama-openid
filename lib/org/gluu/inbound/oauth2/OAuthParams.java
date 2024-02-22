@@ -1,7 +1,5 @@
 package org.gluu.inbound.oauth2;
 
-import org.apache.commons.beanutils.BeanUtils;
-
 import java.util.*;
 
 public class OAuthParams extends SimpleOAuthParams implements Serializable {
@@ -54,18 +52,30 @@ public class OAuthParams extends SimpleOAuthParams implements Serializable {
         this.custParamsTokenReq = custParamsTokenReq;
     }
 
-    public static OAuthParams update(OAuthParams oap, SimpleOAuthParams sop)
-            throws ReflectiveOperationException {
-
-        BeanUtils.copyProperties(oap, sop);
-        return oap;
-
-    }
-
     public static OAuthParams update(OAuthParams oap, SimpleOAuthParams sop, String acrValues)
             throws ReflectiveOperationException {
 
-        update(oap, sop);
+        String s = sop.getAuthzEndpoint();
+        if (s != null) {
+            oap.setAuthzEndpoint(s);
+        }
+        s = sop.getTokenEndpoint();
+        if (s != null) {
+            oap.setTokenEndpoint(s);
+        }
+        s = sop.getUserInfoEndpoint();
+        if (s != null) {
+            oap.setUserInfoEndpoint(s);
+        }
+        s = sop.getClientId();
+        if (s != null) {
+            oap.setClientId(s);
+        }
+        s = sop.getClientSecret();
+        if (s != null) {
+            oap.setClientSecret(s);
+        }
+        
         if (acrValues != null) {
             Map<String, String> custParams = Optional.ofNullable(oap.getCustParamsAuthReq())
                     .orElse(new HashMap<>());
