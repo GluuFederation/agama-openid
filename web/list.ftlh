@@ -23,12 +23,16 @@
 		  <p class="leading-normal">Sign in with
 		  </p>
 		</div>
-		<form method="post" class="my-8">		  
+		<form method="post" class="my-8">
 		  <div class="space-y-9">
 			<div class="text-sm flex justify-center items-center">
-[#list providers?keys as id]
-    <button type="submit" name="selection" value="${id}">${id}</button>
-[/#list]
+			  [#list providers?keys as id]
+			  <button type="submit" name="selection" value="${id}">${id}</button>
+			  [/#list]
+			</div>
+			<div class="text-sm flex justify-center items-center">
+			  <button type="submit" name="selection" value="${id}">${id}</button>
+			  <button type="submit" name="selection" value="${id}">${id}</button>
 			</div>
 		  </div>
 		</form>
