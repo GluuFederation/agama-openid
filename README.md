@@ -31,10 +31,10 @@ The configuration for a given OP is as follows:
 |Name|Description|Notes|
 |-|-|-|
 |`host`|Location of the identity provider, eg. `https://my.idp.co`|Required if DCR is enabled|
-|`dcr`|A JSON object configuring _Dynamic Client Registration_ (DCR) - see [below](#dcr-settings)|Required|
+|`dcr`|A JSON object configuring _Dynamic Client Registration_ (DCR) - see [below](#dcr-settings)|Optional|
 |`oauth`|A JSON object following the structure referenced [here](#authzcodewithuserinfo-and-authzcode)||
 |`acrValues`|A string supplying _Authentication Context Class Reference_ values|Optional|
-|`uidPrefix`|A string value used for user provisioning: the user inserted in local DB will have an `uid` equal to the concatenation of `uidPrefix` and the `sub` released by the external OP.|Optional|
+|`provision`|A JSON object configuring how the user is [provisioned](#user-provisioning)|Required|
 
 Regarding the `oauth` sectino, **not all fields** marked as required are necessary when DCR is used. It suffices to supply `scopes`.
  
@@ -55,7 +55,10 @@ Here is an example that configures an OP with DCR and an OAuth 2.0 provider:
             "oauth": { 
                 "scopes": [ "openid" ] 
             },
-            "uidPrefix": "gluu-"
+            "provision": {
+                "uidPrefix": "gluu-",
+                "attribute": "sub"
+            }
         },
         "Github": {
             "oauth": {
@@ -66,7 +69,10 @@ Here is an example that configures an OP with DCR and an OAuth 2.0 provider:
                 "clientSecret": "twisted",
                 "scopes": [ "user" ]
             },
-            "uidPrefix": "github-"
+            "provision": {
+                "uidPrefix": "github-",
+                "attribute": "login"
+            }
         }    
     }
 }
@@ -82,6 +88,9 @@ The structure of `dcr` is as follows:
 |`enabled`|A boolean value indicating if DCR will be used for the external OP|Required<!--Optional. `false` value assumed if missing-->|
 |`useCachedClient`|Once the first client registration takes place, no more registration attempts will be made until the client is about to expire. Set this to `false` to force registration every time `openid` flow is launched|Required|
 
+### User provisioning
+
+This process is driven by two string properties: `uidPrefix` and `attribute`. The user inserted in the local DB will have an `uid` equal to the concatenation of `uidPrefix` and the profile `attribute` as released by the external identity provider.
 
 ## `AuthzCodeWithUserInfo` and `AuthzCode`
 
