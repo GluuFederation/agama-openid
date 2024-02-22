@@ -391,7 +391,7 @@
 					],
 					"callType": "Call static method",
 					"arguments": [
-						"opSettings.uidPrefix outcome.data"
+						"opSettings.provision.uidPrefix opSettings.provision.attribute profile"
 					],
 					"logMessage": "",
 					"templatePath": "",
@@ -416,7 +416,7 @@
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 1193,
@@ -461,7 +461,7 @@
 						{
 							"variableTypeCheck": false,
 							"assignmentExpression": "outcome.data.profile",
-							"assignedVariableName": "outcome.data"
+							"assignedVariableName": "profile"
 						}
 					],
 					"callType": "Call static method",
@@ -585,7 +585,7 @@
 					"inputs": "",
 					"configs": "conf",
 					"flowname": "org.gluu.inbound.openid",
-					"configParams": "{}"
+					"configParams": "{\n    \"org.gluu.inbound.openid\":{\n        \"Gluu\": {\n            \"host\": \"https://my.gluu.co\", \n            \"dcr\": { \n                \"enabled\": true,\n                \"useCachedClient\": true \n            },\n            \"oauth\": { \n                \"scopes\": [ \"openid\" ] \n            },\n            \"provision\": {\n                \"uidPrefix\": \"gluu-\",\n                \"attribute\": \"sub\"\n            }\n        },\n        \"Github\": {\n            \"oauth\": {\n                \"authzEndpoint\": \"https://github.com/login/oauth/authorize\",\n                \"tokenEndpoint\": \"https://github.com/login/oauth/access_token\",\n                \"userInfoEndpoint\": \"https://api.github.com/user\",\n                \"clientId\": \"mangled\",\n                \"clientSecret\": \"twisted\",\n                \"scopes\": [ \"user\" ]\n            },\n            \"provision\": {\n                \"uidPrefix\": \"github-\",\n                \"attribute\": \"login\"\n            }\n        }    \n    }\n}"
 				},
 				"skake": false
 			},
@@ -593,7 +593,7 @@
 				"x": -688.5260790959032,
 				"y": 30.349914996495613
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": -688.5260790959032,
@@ -769,6 +769,12 @@
 					"hasFailure": true,
 					"conditions": [
 						{
+							"variable": "opSettings.dcr",
+							"operator": "is not",
+							"dataValue": "null",
+							"combinator": "and"
+						},
+						{
 							"variable": "opSettings.dcr.enabled",
 							"operator": "is",
 							"dataValue": "true",
@@ -777,7 +783,7 @@
 					],
 					"comment": "Check if dynamic client registration is desired",
 					"hasComment": true,
-					"inRepeatBlock": false,
+					"inRepeatBlock": "",
 					"hasSuccess": true,
 					"position": {
 						"x": 237.16593234867958
@@ -1071,8 +1077,8 @@
 		}
 	],
 	"viewport": {
-		"x": 275.62774784225667,
-		"y": -29.589847144434486,
-		"zoom": 0.7536674547791904
+		"x": -190.82905363358532,
+		"y": 12.973773140512549,
+		"zoom": 0.654289035727505
 	}
 }
