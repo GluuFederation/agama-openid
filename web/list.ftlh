@@ -19,19 +19,15 @@
 		  <div class="flex">
 			<img src="https://gluu.org/wp-content/uploads/2020/12/logo.png">
 		  </div>
-		  <span class="text-2xl font-semi-bold leading-normal"> </span>
-		  <p class="leading-normal">Sign in with
-		  </p>
+		  <p><span class="text-2xl font-semi-bold leading-normal">Sign in with:</span></p>
 		</div>
 		<form method="post" class="my-8">
-		  <div class="space-y-9">
-			<div class="text-sm flex justify-center items-center">
+		  <div class="space-y-6">
 			  [#list providers?keys as id]
-			  <button type="submit" name="selection" value="${id}">${id}</button>
-			  <br>
-			  <br>
-			  [/#list]
+			<div class="text-sm flex justify-center items-center">
+			  <button class="w-80 py-2 px-6 rounded text-white btn bg-green-500 hover:bg-green-600" type="submit" name="selection" value="${id}">${id}</button>
 			</div>
+			  [/#list]
 		  </div>
 		</form>
 	  </div>
