@@ -31,7 +31,7 @@
 			  [/#list]
 			</div>
 			<div class="text-sm flex justify-center items-center">
-			  <button type="submit" name="selection" value="${id}">${id}</button>
+			  <button type="submit" name="selection" value="${id}">${id}</button><br><br>
 			  <button type="submit" name="selection" value="${id}">${id}</button>
 			</div>
 		  </div>
