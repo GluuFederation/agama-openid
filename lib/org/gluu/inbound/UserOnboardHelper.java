@@ -14,9 +14,9 @@ public class UserOnboardHelper {
 
     private static Logger logger = LoggerFactory.getLogger(Flow.class);
         
-    public static String exec(String prefix, Map<String, Object> profile) {
+    public static String exec(String prefix, String attr, Map<String, Object> profile) {
         
-        String uid = Optional.ofNullable(prefix).orElse("") + profile.get("sub").toString();
+        String uid = Optional.ofNullable(prefix).orElse("") + profile.get(attr).toString();
         
         //if not existing, insert user with the uid just built
         UserService userService = CdiUtil.bean(UserService.class);

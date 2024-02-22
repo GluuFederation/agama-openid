@@ -36,7 +36,7 @@ The configuration for a given OP is as follows:
 |`acrValues`|A string supplying _Authentication Context Class Reference_ values|Optional|
 |`provision`|A JSON object configuring how the user is [provisioned](#user-provisioning)|Required|
 
-Regarding the `oauth` sectino, **not all fields** marked as required are necessary when DCR is used. It suffices to supply `scopes`.
+Regarding the `oauth` section, **not all fields** marked as required are necessary when DCR is used. It suffices to supply `scopes`.
  
 ### Example
 
@@ -94,7 +94,7 @@ This process is driven by two string properties: `uidPrefix` and `attribute`. Th
 
 ## `AuthzCodeWithUserInfo` and `AuthzCode`
 
-Each of these flows receive an input parameter (`oauthParams`) to drive their behavior. `oauthParams` is expected to be an Agama map with the following structure:
+Each of these flows receive an input parameter (`oauthParams`) to drive their behavior. `oauthParams` adheres to the following structure:
 
 |Name|Description|Notes|
 |-|-|-|
