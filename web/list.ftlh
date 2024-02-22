@@ -28,11 +28,9 @@
 			<div class="text-sm flex justify-center items-center">
 			  [#list providers?keys as id]
 			  <button type="submit" name="selection" value="${id}">${id}</button>
+			  <br>
+			  <br>
 			  [/#list]
-			</div>
-			<div class="text-sm flex justify-center items-center">
-			  <button type="submit" name="selection" value="${id}">${id}</button><br><br>
-			  <button type="submit" name="selection" value="${id}">${id}</button>
 			</div>
 		  </div>
 		</form>
