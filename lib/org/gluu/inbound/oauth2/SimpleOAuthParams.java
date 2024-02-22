@@ -1,6 +1,6 @@
 package org.gluu.inbound.oauth2;
 
-public class SimpleOAuthParams {
+public class SimpleOAuthParams implements Serializable {
     
     private String authzEndpoint;
     private String tokenEndpoint;

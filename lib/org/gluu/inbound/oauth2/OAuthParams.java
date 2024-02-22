@@ -4,7 +4,7 @@ import org.apache.commons.beanutils.BeanUtils;
 
 import java.util.*;
 
-public class OAuthParams extends SimpleOAuthParams {
+public class OAuthParams extends SimpleOAuthParams implements Serializable {
 
     private List<String> scopes;
 
