@@ -1,6 +1,6 @@
 # Agama OpenID Connect Project
 
-Use this project to delegate authentication to an external OpenID Connect provider (OP) using the *authorization code flow*.
+Use this project to delegate authentication to an external OAuth 2.0 or OpenID Connect provider (OP) using the *authorization code flow*.
 
 ## Anatomy
 
@@ -10,35 +10,73 @@ The project consists of three flows that provide incremental functionality:
 
 - `org.gluu.inbound.oauth2.AuthzCodeWithUserInfo`: This flow launches `AuthzCode` and then obtains the profile data of the authenticated user by presenting an access token. Both the token and profile data are returned to the caller
 
-- `org.gluu.inbound.openid`: This flow launches `AuthzCodeWithUserInfo` and inserts an entry in the local Jans database for the user in question. Depending on how the flow is parameterized, this flow can perform a preliminar OpenID client registration 
+- `org.gluu.inbound.openid`: This flow displays an identity provider selection page and launches `AuthzCodeWithUserInfo`. Once the browser returns back from the external site, an entry in the local Jans database for the user in question is inserted. The list of supported providers and their associated settings are supplied through the project configuration. This is data supplied post-deployment
 
-## `openid` flow
+## Configuration properties
 
-Most of times, this is the flow that developers will want to reuse in their projects. It receives two input parameters:
-
-- `opSettings`. An Agama map that specify the settings to be able to interact with the external OP
-- `uidPrefix`. A string value used for user provisioning: the user inserted in local DB will have an `uid` equal to the concatenation of `uidPrefix` and the `sub` released by the external OP. This param can be omitted or set to `null` if no prefixing is desired 
-
-### OP settings
-
-The structure of `opSettings` is as follows:
-
-|Name|Description|Notes|
-|-|-|-|
-|`host`|Location of the identity provider, eg. `https://my.idp.co`|Required if DCR is enabled, see below|
-|`dcr`|The `openid` flow can make use of Dynamic Client Registration (DCR) - a feature some OPs provide|Required|
-|`oauth`|A map following the same structure of [oauthParams](#authzcodewithuserinfo-and-authzcode)||
-
-Regarding oauth map, **not all fields** marked as required are necessary when DCR is enabled. It suffices to supply `scopes`.
-
-Here is a minimalistic value that can be supplied for `opSettings` when DCR is supported by the external OP:
+This project must be configured using a JSON document that follows the structure below:
 
 ```
 {
-    host: "https://my.idp.co", 
-    dcr: { enabled: true, useCachedClient: true },
-    oauth: { scopes: [ "openid" ] } 
+    "org.gluu.inbound.openid": {
+       "OP1_ID": { configs for identity provider 1 },
+       "OP2_ID": { configs for identity provider 2 },
+       ...
+    }
 }
+```
+
+The configuration for a given OP is as follows:
+
+|Name|Description|Notes|
+|-|-|-|
+|`host`|Location of the identity provider, eg. `https://my.idp.co`|Required if DCR is enabled|
+|`dcr`|A JSON object configuring _Dynamic Client Registration_ (DCR) - see [below](#dcr-settings)|Optional|
+|`oauth`|A JSON object following the structure referenced [here](#authzcodewithuserinfo-and-authzcode)||
+|`acrValues`|A string supplying _Authentication Context Class Reference_ values|Optional|
+|`provision`|A JSON object configuring how the user is [provisioned](#user-provisioning)|Required|
+
+Regarding the `oauth` section, **not all fields** marked as required are necessary when DCR is used. It suffices to supply `scopes`.
+ 
+### Example
+
+
+Here is an example that configures an OP with DCR and an OAuth 2.0 provider:
+
+```
+{
+    "org.gluu.inbound.openid":{
+        "Gluu": {
+            "host": "https://my.gluu.co", 
+            "dcr": { 
+                "enabled": true,
+                "useCachedClient": true 
+            },
+            "oauth": { 
+                "scopes": [ "openid" ] 
+            },
+            "provision": {
+                "uidPrefix": "gluu-",
+                "attribute": "sub"
+            }
+        },
+        "Github": {
+            "oauth": {
+                "authzEndpoint": "https://github.com/login/oauth/authorize",
+                "tokenEndpoint": "https://github.com/login/oauth/access_token",
+                "userInfoEndpoint": "https://api.github.com/user",
+                "clientId": "mangled",
+                "clientSecret": "twisted",
+                "scopes": [ "user" ]
+            },
+            "provision": {
+                "uidPrefix": "github-",
+                "attribute": "login"
+            }
+        }    
+    }
+}
+
 ```
 
 ### DCR settings
@@ -48,12 +86,15 @@ The structure of `dcr` is as follows:
 |Name|Description|Notes|
 |-|-|-|
 |`enabled`|A boolean value indicating if DCR will be used for the external OP|Required<!--Optional. `false` value assumed if missing-->|
-|`useCachedClient`|Once the first client registration takes place, no more registration attempts will be made until the client is about to expire. Set this to `true` to force registration every time `openid` flow is launched|Required|
+|`useCachedClient`|Once the first client registration takes place, no more registration attempts will be made until the client is about to expire. Set this to `false` to force registration every time `openid` flow is launched|Required|
 
+### User provisioning
+
+This process is driven by two string properties: `uidPrefix` and `attribute`. The user inserted in the local DB will have an `uid` equal to the concatenation of `uidPrefix` and the profile `attribute` as released by the external identity provider.
 
 ## `AuthzCodeWithUserInfo` and `AuthzCode`
 
-Each of these flows receive an input parameter (`oauthParams`) to drive their behavior. `oauthParams` is expected to be an Agama map with the following structure:
+Each of these flows receive an input parameter (`oauthParams`) to drive their behavior. `oauthParams` adheres to the following structure:
 
 |Name|Description|Notes|
 |-|-|-|
@@ -78,4 +119,3 @@ Supply the following: `https://<jans-server-host-name>/jans-auth/fl/callback`
 ### What methods for token endpoint authentication are supported?
 
 Only `client_secret_basic` and `client_secret_post` are supported
-

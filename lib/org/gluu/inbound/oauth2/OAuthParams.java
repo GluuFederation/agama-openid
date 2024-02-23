@@ -1,11 +1,8 @@
 package org.gluu.inbound.oauth2;
 
-import org.apache.commons.beanutils.BeanUtils;
+import java.util.*;
 
-import java.util.List;
-import java.util.Map;
-
-public class OAuthParams extends SimpleOAuthParams {
+public class OAuthParams extends SimpleOAuthParams implements Serializable {
 
     private List<String> scopes;
 
@@ -55,10 +52,37 @@ public class OAuthParams extends SimpleOAuthParams {
         this.custParamsTokenReq = custParamsTokenReq;
     }
 
-    public static OAuthParams update(OAuthParams oap, SimpleOAuthParams sop)
+    public static OAuthParams update(OAuthParams oap, SimpleOAuthParams sop, String acrValues)
             throws ReflectiveOperationException {
 
-        BeanUtils.copyProperties(oap, sop);
+        String s = sop.getAuthzEndpoint();
+        if (s != null) {
+            oap.setAuthzEndpoint(s);
+        }
+        s = sop.getTokenEndpoint();
+        if (s != null) {
+            oap.setTokenEndpoint(s);
+        }
+        s = sop.getUserInfoEndpoint();
+        if (s != null) {
+            oap.setUserInfoEndpoint(s);
+        }
+        s = sop.getClientId();
+        if (s != null) {
+            oap.setClientId(s);
+        }
+        s = sop.getClientSecret();
+        if (s != null) {
+            oap.setClientSecret(s);
+        }
+        
+        if (acrValues != null) {
+            Map<String, String> custParams = Optional.ofNullable(oap.getCustParamsAuthReq())
+                    .orElse(new HashMap<>());
+            //overwrite acrs
+            custParams.put("acr_values", acrValues);
+            oap.setCustParamsAuthReq(custParams);
+        }
         return oap;
 
     }
