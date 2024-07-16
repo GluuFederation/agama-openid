@@ -613,20 +613,22 @@
 					"hasRepeat": false,
 					"conditions": [
 						{
-							"variable": "E",
+							"variable": "callException",
 							"operator": "is not",
 							"dataValue": "null",
 							"combinator": "none"
 						}
-					]
+					],
+					"hasComment": true,
+					"inRepeatBlock": false
 				},
 				"handles": [
 					"Agama-when-Node-c37faed6-e4ca-4a7c-bc3c-8f2fcdb34eab.FAILURE",
 					"Agama-when-Node-c37faed6-e4ca-4a7c-bc3c-8f2fcdb34eab.SUCCESS"
 				],
-				"skake": false
+				"skake": true
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 849.9244943060257,
@@ -695,7 +697,7 @@
 					"assignCallbackResult": "",
 					"displayName": "",
 					"nodeColor": "",
-					"exceptionVariableField": "E",
+					"exceptionVariableField": "callException",
 					"nodeIcon": "material-symbols:code",
 					"asssignedVariableName": "profile",
 					"hasComment": true
@@ -968,7 +970,7 @@
 				},
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 912.3333333333333,
