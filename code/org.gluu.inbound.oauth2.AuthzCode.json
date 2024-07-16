@@ -121,7 +121,7 @@
 				},
 				"skake": false
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
 				"x": 2677.3463097188055,
@@ -1004,12 +1004,12 @@
 			}
 		},
 		{
-			"width": 210,
-			"height": 140,
+			"width": 110,
+			"height": 60,
 			"id": "Agama-when-Node-e0a3ca22-b0d1-4bf1-9111-a4114b5b0d57",
 			"position": {
-				"x": 212.75101317223687,
-				"y": 85.32684514059719
+				"x": 310.08434650557024,
+				"y": 61.326845140597186
 			},
 			"parentId": "Agama-start-Flow-0102c357-a53f-496c-ae34-bcca2c3a07b5",
 			"type": "when",
@@ -1020,8 +1020,8 @@
 				"whenCondition": "",
 				"inRepeatBlock": false,
 				"position": {
-					"x": 212.75101317223687,
-					"y": 85.32684514059719
+					"x": 310.08434650557024,
+					"y": 61.326845140597186
 				},
 				"agamaData": {
 					"id": "Agama-when-Node-e0a3ca22-b0d1-4bf1-9111-a4114b5b0d57",
@@ -1055,11 +1055,11 @@
 				],
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
-				"x": 212.75101317223687,
-				"y": 85.32684514059719
+				"x": 192.14920229081787,
+				"y": 90.97693014410163
 			}
 		},
 		{
@@ -1348,8 +1348,8 @@
 		}
 	],
 	"viewport": {
-		"x": -1601.7040046488967,
-		"y": 113.03879923751262,
-		"zoom": 0.8802590135631507
+		"x": -197,
+		"y": 171,
+		"zoom": 0.75
 	}
 }
