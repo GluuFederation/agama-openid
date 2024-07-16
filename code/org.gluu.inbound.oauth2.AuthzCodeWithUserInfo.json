@@ -273,7 +273,7 @@
 				"x": 1080,
 				"y": 30
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false
 		},
 		{
@@ -573,12 +573,12 @@
 			}
 		},
 		{
-			"width": 210,
-			"height": 140,
+			"width": 110,
+			"height": 60,
 			"id": "Agama-when-Node-c37faed6-e4ca-4a7c-bc3c-8f2fcdb34eab",
 			"position": {
-				"x": 828.8481123576507,
-				"y": 85.15188764234938
+				"x": 264.8481123576506,
+				"y": 54.485220975682694
 			},
 			"parentId": "Agama-call-Node-42ba4dbe-515f-4df8-aa6b-4c7568b8451a",
 			"type": "when",
@@ -589,8 +589,8 @@
 				"whenCondition": "",
 				"inRepeatBlock": false,
 				"position": {
-					"x": 828.8481123576507,
-					"y": 85.15188764234938
+					"x": 264.8481123576506,
+					"y": 54.485220975682694
 				},
 				"agamaData": {
 					"id": "Agama-when-Node-c37faed6-e4ca-4a7c-bc3c-8f2fcdb34eab",
@@ -629,8 +629,8 @@
 			"selected": false,
 			"dragging": false,
 			"positionAbsolute": {
-				"x": 828.8481123576507,
-				"y": 85.15188764234938
+				"x": 849.9244943060257,
+				"y": 84.48522097568275
 			}
 		},
 		{
@@ -906,8 +906,8 @@
 			"height": 124,
 			"id": "Agama-log-Node-61e52b32-fe1c-4ebe-bb2c-df3087a16e3a",
 			"position": {
-				"x": 943,
-				"y": 314
+				"x": 912.3333333333333,
+				"y": 319.33333333333326
 			},
 			"type": "log",
 			"data": {
@@ -917,8 +917,8 @@
 				"whenCondition": "",
 				"inRepeatBlock": "",
 				"position": {
-					"x": 943,
-					"y": 314
+					"x": 912.3333333333333,
+					"y": 319.33333333333326
 				},
 				"agamaData": {
 					"id": "Agama-log-Node-61e52b32-fe1c-4ebe-bb2c-df3087a16e3a",
@@ -968,11 +968,11 @@
 				},
 				"skake": false
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false,
 			"positionAbsolute": {
-				"x": 943,
-				"y": 314
+				"x": 912.3333333333333,
+				"y": 319.33333333333326
 			},
 			"whenCondition": "",
 			"inRepeatBlock": ""
@@ -1229,8 +1229,8 @@
 		}
 	],
 	"viewport": {
-		"x": -172.00120415940785,
-		"y": 25.031791938293736,
-		"zoom": 0.7536674547791904
+		"x": 137,
+		"y": 151,
+		"zoom": 0.75
 	}
 }
