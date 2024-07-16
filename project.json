@@ -14,7 +14,8 @@
     ],
     "noDirectLaunch": [
         "io.jans.inbound.oauth2.AuthzCode",
-        "io.jans.inbound.oauth2.AuthzCodeWithUserInfo"
+        "io.jans.inbound.oauth2.AuthzCodeWithUserInfo",
+        "org.gluu.inbound.oauth2.AuthzCode"
     ],
     "configs": {
         "org.gluu.inbound.oauth2.AuthzCode": {},
