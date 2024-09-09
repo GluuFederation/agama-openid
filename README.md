@@ -36,7 +36,7 @@ project directly from the tool, as part of the `community projects` listing.
 The project is bundled as 
 [.gama package](https://docs.jans.io/head/agama/gama-format/). 
 Visit the `Assets` section of the 
-[Releases](https://github.com/GluuFederation/agama-pw/releases) to download 
+[Releases](https://github.com/GluuFederation/agama-openid/releases) to download 
 the `.gama` package.
 
 ### Add The Project To The Server
@@ -185,5 +185,9 @@ to create complex authentication journeys.
 To make it easier to visualize and customize the Agama Project, use the 
 [Agama Lab](https://cloud.gluu.org/agama-lab/login).
 
+
+## Demo
+
+Check out this [video](https://www.loom.com/share/c388a650f900455fb586649b155df6a8?sid=fa97e2e5-6ee8-481c-b7da-17b044cf9963)
 
 
