@@ -150,15 +150,6 @@ Here is an example that configures an OP with DCR and an OAuth 2.0 provider:
 
 ```
 
-
-## Flows In The Project
-
-|Qualified name|Description|
-|-|-|
-|`org.gluu.inbound.oauth2.AuthzCode`|With this flow the user's browser is redirected to the authorization page of an external OP (the specifics are passed in the input parameters). Authentication takes place there and subsequently an access token is obtained and returned to the caller of the flow|
-|`org.gluu.inbound.oauth2.AuthzCodeWithUserInfo`|This flow launches `AuthzCode` and then obtains the profile data of the authenticated user by presenting an access token. Both the token and profile data are returned to the caller|
-|`org.gluu.inbound.openid`|This flow displays an identity provider selection page and launches `AuthzCodeWithUserInfo`. Once the browser returns back from the external site, an entry in the local Jans database for the user in question is inserted. The list of supported providers and their associated settings are supplied through the project configuration. This is data supplied post-deployment|
-
 ### Test The Flow
 
 
@@ -171,19 +162,33 @@ To invoke the `org.gluu.inbound.openid` flow contained in the  Agama-openid proj
 specify the ACR value as `agama_<qualified-name-of-the-top-level-flow>`, 
 i.e  `agama_org.gluu.inbound.openid`.
 
-![gif]()
 
 
 ## Customize and Make It Your Own
 
-Fork this repo to start customizing the Agama-Openid project. Add custom web 
-assets to change the styling of the web pages to suit your organization's 
-branding guidelines. Or customize the flow code to change the most basic 
-behavior. Agama flow can also be used in conjunction with other Agama projects 
-to create complex authentication journeys. 
 
-To make it easier to visualize and customize the Agama Project, use the 
+Fork this repo to start customizing the Agama-openid project. It is possible to 
+customize the user interface provided by the flow to suit your organization's 
+branding 
+guidelines. Or customize the overall flow behavior. Follow the best 
+practices and steps listed 
+[here](https://docs.jans.io/head/admin/developer/agama/agama-best-practices/#project-reuse-and-customizations) 
+to achieve these customizations in the best possible way.
+This  project can be re-used in other Agama projects to create more complex
+ authentication journeys. To re-use, trigger the 
+ [org.gluu.inbound.openid](#flows-in-the-project) flow from other Agama projects.
+
+To make it easier to visualize and customize the Agama Project, use 
 [Agama Lab](https://cloud.gluu.org/agama-lab/login).
+
+
+## Flows In The Project
+
+|Qualified name|Description|
+|-|-|
+|`org.gluu.inbound.oauth2.AuthzCode`|With this flow the user's browser is redirected to the authorization page of an external OP (the specifics are passed in the input parameters). Authentication takes place there and subsequently an access token is obtained and returned to the caller of the flow|
+|`org.gluu.inbound.oauth2.AuthzCodeWithUserInfo`|This flow launches `AuthzCode` and then obtains the profile data of the authenticated user by presenting an access token. Both the token and profile data are returned to the caller|
+|`org.gluu.inbound.openid`|This flow displays an identity provider selection page and launches `AuthzCodeWithUserInfo`. Once the browser returns back from the external site, an entry in the local Jans database for the user in question is inserted. The list of supported providers and their associated settings are supplied through the project configuration. This is data supplied post-deployment|
 
 
 ## Demo
