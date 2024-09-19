@@ -6,8 +6,9 @@ outcome = Trigger org.gluu.inbound.oauth2.AuthzCode oauthParams
 // Extracts the access token required for requesting UserInfo
 token = outcome.data.access_token
 // Calls the userinfo endpoint and parses the request as a map
-profile | E = Call org.gluu.util.NetworkUtils#mapFromGetRequestWithToken oauthParams.userInfoEndpoint token
-When E is not null
+profile | callException = Call org.gluu.util.NetworkUtils#mapFromGetRequestWithToken oauthParams.userInfoEndpoint token
+// Check if exception was thrown previously
+When callException is not null
      Log "@error " E
      msg = [ "Unable to retrieve user profile.", E.message ]
      // Build error message
