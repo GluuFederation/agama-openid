@@ -9,6 +9,13 @@ token = outcome.data.access_token
 profile | callException = Call org.gluu.util.NetworkUtils#mapFromGetRequestWithToken oauthParams.userInfoEndpoint token
 // Check if exception was thrown previously
 When callException is not null
+     Log "@error " E
+     msg = [ "Unable to retrieve user profile.", E.message ]
+     // Build error message
+     msg = Call java.lang.String#join " " msg
+     outcome = { success: false, error: msg }
+     // Fail
+     Finish outcome
 Log "@debug Profile data\n" profile
 // Set variable with profile and token data
 outcome = { success: true, data: { profile: profile, tokenResponse: outcome.data } }
