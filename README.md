@@ -38,7 +38,8 @@ Deployment of an Agama project involves three steps.
 
 #### Pre-Requisites
 
-Client credentials are required if the `DCR` is disabled for the IDP.
+Client credentials of the IDP of your choice will be required to configure 
+this project, if the `DCR` is disabled on the IDP. 
 
 ### Download the Project
 
@@ -234,3 +235,15 @@ While the video shows how the flow works overall, it may be dated. Do check the
 method of passing the ACR parameter when invoking the flow.
 
 
+
+<!-- These are stats url references for this repository -->
+[contributors-shield]: https://img.shields.io/github/contributors/GluuFederation/agama-openid.svg?style=for-the-badge
+[contributors-url]: https://github.com/GluuFederation/agama-openid/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/GluuFederation/agama-openid.svg?style=for-the-badge
+[forks-url]: https://github.com/GluuFederation/agama-openid/network/members
+[stars-shield]: https://img.shields.io/github/stars/GluuFederation/agama-openid?style=for-the-badge
+[stars-url]: https://github.com/GluuFederation/agama-openid/stargazers
+[issues-shield]: https://img.shields.io/github/issues/GluuFederation/agama-openid.svg?style=for-the-badge
+[issues-url]: https://github.com/GluuFederation/agama-openid/issues
+[license-shield]: https://img.shields.io/github/license/GluuFederation/agama-openid.svg?style=for-the-badge
+[license-url]: https://github.com/GluuFederation/agama-openid/blob/master/LICENSE
