@@ -1,6 +1,8 @@
 package org.gluu.inbound.oauth2;
 
 public class SimpleOAuthParams implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     
     private String authzEndpoint;
     private String tokenEndpoint;
